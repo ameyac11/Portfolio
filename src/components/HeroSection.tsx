@@ -68,7 +68,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.5 }}
                         className="flex gap-6 text-muted-foreground"
                     >
-                        <a href="https://github.com/ameyaccod171" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <a href="https://github.com/AmeyC171" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                             <Github className="w-6 h-6" />
                         </a>
                         <a href="https://www.linkedin.com/in/ameya-chopade11" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
