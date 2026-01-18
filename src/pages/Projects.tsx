@@ -72,10 +72,11 @@ const Projects = () => {
             description: 'A comprehensive deep learning project featuring a custom Convolutional Neural Network architecture for advanced image classification. Includes comprehensive data preprocessing pipelines, model training optimization, thorough evaluation metrics, and production-ready deployment solutions.',
             screenshots: [
                 '/LiteNet_1.png',
-                '/Litenet_2.png'
+                '/LiteNet_2.png',
+                '/LiteNet_3.png'
             ],
             tags: ['Pytorch', 'Python', 'CNN'],
-            demoLink: '#',
+            demoLink: 'https://litenet.vercel.app',
             codeLink: '#',
             category: 'AI/ML',
             status: 'Completed',
