@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./lib/theme-provider";
 import { useEffect, useState } from "react";
 import LoadingScreen from "./components/LoadingScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -55,6 +56,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
