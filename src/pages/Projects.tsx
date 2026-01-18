@@ -1,0 +1,353 @@
+
+import React, { useState } from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
+import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, ChevronRight, X, LayoutList, Github } from 'lucide-react';
+
+const Projects = () => {
+    const [selectedFilter, setSelectedFilter] = useState('all');
+    const [activeScreenshot, setActiveScreenshot] = useState<{ [key: number]: number }>({});
+    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+    // Monochrome/Neutral tag styles
+    const tagStyles = "bg-secondary text-secondary-foreground border-border/50";
+
+    const projects = [
+        {
+            title: 'DataNesTX',
+            description: 'Unified AI Data Orchestration & Intelligence Platform. An AI-driven data orchestration platform designed to unify, manage, and optimize data flows across modern AI systems. Acts as a central intelligence layer connecting raw data sources, vector databases, LLMs, and downstream applications into a single, scalable pipeline.',
+            screenshots: [
+                '/DataNesTX_Logo_Dark_Frontend.png',
+                '/DataNesTX_Logo_Light_Frontend.png'
+            ],
+            tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'VectorDB', 'LLM'],
+            demoLink: 'https://datanestx.tech',
+            codeLink: '#',
+            category: 'AI/ML',
+            status: 'In Progress',
+            featured: true,
+            stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
+            highlights: ['Centralized Data Layer', 'RAG Pipeline', 'Model-Agnostic']
+        },
+        {
+            title: 'CorpusAI',
+            description: 'Intelligent Context & Knowledge Management for LLMs. A context-intelligence platform built to solve managing large, dynamic, and reusable knowledge across LLM interactions. Features structured storage, retrieval, and lifecycle management of prompts, documents, embeddings, and conversational context with smart caching.',
+            screenshots: [
+                '/CorpusAI_1.png',
+                '/DataNesTX_Logo_Dark_Frontend.png',
+                '/DataNesTX_Logo_Light_Frontend.png'
+            ],
+            tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG'],
+            demoLink: 'https://corpusai.datanestx.tech',
+            codeLink: '#',
+            category: 'AI/ML',
+            status: 'Completed',
+            featured: true,
+            stats: { stars: 65, contributors: 1, lastUpdate: '2026-01' },
+            highlights: ['Context Caching', 'Token Efficient', 'Multi-Agent Systems', 'RAG']
+        },
+        {
+            title: 'DataForgeAI',
+            description: 'AI-First Data Processing & Transformation Engine. An AI-centric data processing engine that transforms raw, unstructured, or semi-structured data into AI-ready formats. Automates data cleaning, normalization, enrichment, and embedding generation, enabling faster deployment of machine learning and LLM-powered applications.',
+            screenshots: [
+                '/DataNesTX_Logo_Dark_Frontend.png',
+                '/DataNesTX_Logo_Light_Frontend.png'
+            ],
+            tags: ['Python', 'Pytorch', 'FastAPI', 'MongoDB', 'VectorDB', 'AI'],
+            demoLink: 'https://datanestx.tech',
+            codeLink: '#',
+            category: 'AI/ML',
+            status: 'In Progress',
+            featured: true,
+            stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
+            highlights: ['Automated Processing', 'Scalable', 'ML Integration']
+        },
+        {
+            title: 'Custom CNN Model',
+            description: 'A comprehensive deep learning project featuring a custom Convolutional Neural Network architecture for advanced image classification. Includes comprehensive data preprocessing pipelines, model training optimization, thorough evaluation metrics, and production-ready deployment solutions.',
+            screenshots: [
+                '/cnn.png',
+                'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80'
+            ],
+            tags: ['Pytorch', 'Python', 'CNN'],
+            demoLink: '#',
+            codeLink: '#',
+            category: 'AI/ML',
+            status: 'Completed',
+            featured: false,
+            stats: { stars: 45, contributors: 3, lastUpdate: '2024-08' },
+            highlights: ['Custom Architecture', 'High Accuracy', 'Scalable Solution']
+        },
+        {
+            title: 'Portfolio Website',
+            description: 'A modern, responsive portfolio website showcasing professional skills, comprehensive project portfolio, and seamless contact integration. Built with cutting-edge technologies and featuring elegant animations, optimized performance, and exceptional user experience across all devices.',
+            screenshots: [
+                'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80'
+            ],
+            tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'TailwindCSS'],
+            demoLink: '#',
+            codeLink: '#',
+            category: 'Web Development',
+            status: 'Completed',
+            featured: false,
+            stats: { stars: 28, contributors: 1, lastUpdate: '2024-08' },
+            highlights: ['Modern Design', 'Responsive', 'Fast Performance']
+        }
+    ];
+
+    const filters = [
+        { id: 'all', name: 'All Projects', count: projects.length },
+        { id: 'AI/ML', name: 'AI & ML', count: projects.filter(p => p.category === 'AI/ML').length },
+        { id: 'Web Development', name: 'Web Dev', count: projects.filter(p => p.category === 'Web Development').length },
+        { id: 'featured', name: 'Featured', count: projects.filter(p => p.featured).length }
+    ];
+
+    const filteredProjects = selectedFilter === 'all'
+        ? projects
+        : selectedFilter === 'featured'
+            ? projects.filter(p => p.featured)
+            : projects.filter(p => p.category === selectedFilter);
+
+    const nextScreenshot = (projectIndex: number, totalScreenshots: number) => {
+        setActiveScreenshot(prev => ({
+            ...prev,
+            [projectIndex]: ((prev[projectIndex] || 0) + 1) % totalScreenshots
+        }));
+    };
+
+    const prevScreenshot = (projectIndex: number, totalScreenshots: number) => {
+        setActiveScreenshot(prev => ({
+            ...prev,
+            [projectIndex]: ((prev[projectIndex] || 0) - 1 + totalScreenshots) % totalScreenshots
+        }));
+    };
+
+    return (
+        <div className="min-h-screen bg-background text-foreground flex flex-col">
+            <Navbar />
+
+            <main className="flex-grow pt-28 pb-20 container px-4 mx-auto max-w-6xl">
+                {/* Minimal Header */}
+                <div className="flex flex-col items-center mb-16 text-center space-y-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium">
+                        <LayoutList className="w-4 h-4" />
+                        <span>Portfolio</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+                        Featured Projects
+                    </h1>
+                </div>
+
+                {/* Filters */}
+                <div className="flex justify-center mb-16">
+                    <div className="flex flex-wrap gap-2 p-1 bg-secondary/20 rounded-lg">
+                        {filters.map((filter) => (
+                            <button
+                                key={filter.id}
+                                onClick={() => setSelectedFilter(filter.id)}
+                                className={cn(
+                                    "px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center gap-2",
+                                    selectedFilter === filter.id
+                                        ? "bg-foreground text-background shadow-sm"
+                                        : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
+                                )}
+                            >
+                                {filter.name}
+                                <span className={cn(
+                                    "text-xs px-1.5 py-0.5 rounded-full font-bold",
+                                    selectedFilter === filter.id ? "bg-background text-foreground" : "bg-secondary text-muted-foreground"
+                                )}>
+                                    {filter.count}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Zig-Zag List View */}
+                <div className="space-y-16">
+                    {filteredProjects.map((project, index) => {
+                        const currentScreenshot = activeScreenshot[index] || 0;
+                        const isEven = index % 2 === 0;
+
+                        return (
+                            <div
+                                key={index}
+                                className={cn(
+                                    "group flex flex-col items-center gap-8 lg:gap-16 pb-20 border-b border-border last:border-0 fade-in",
+                                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                                )}
+                                style={{ animationDelay: `${index * 0.1}s` }}
+                            >
+                                {/* IMAGE COLUMN (5 cols equivalent -> ~45%) */}
+                                <div className="w-full lg:w-[45%] relative rounded-2xl overflow-hidden bg-secondary/10 border border-border shadow-sm group-hover:shadow-md transition-shadow duration-300 aspect-video lg:aspect-[4/3]">
+                                    <div
+                                        className="flex h-full transition-transform duration-500 ease-in-out"
+                                        style={{ transform: `translateX(-${currentScreenshot * 100}%)` }}
+                                    >
+                                        {project.screenshots.map((src, i) => (
+                                            <div key={i} className="min-w-full h-full relative">
+                                                <img
+                                                    src={src}
+                                                    alt={`${project.title} - view ${i + 1}`}
+                                                    className="w-full h-full object-cover cursor-pointer hover:opacity-95 transition-opacity"
+                                                    onClick={() => setLightboxImage(src)}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Navigation */}
+                                    {project.screenshots.length > 1 && (
+                                        <>
+                                            <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); prevScreenshot(index, project.screenshots.length); }}
+                                                    className="p-2 rounded-full bg-background/80 text-foreground hover:bg-background shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
+                                                >
+                                                    <ChevronLeft className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); nextScreenshot(index, project.screenshots.length); }}
+                                                    className="p-2 rounded-full bg-background/80 text-foreground hover:bg-background shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
+                                                >
+                                                    <ChevronRight className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                            {/* Dots */}
+                                            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 pointer-events-none">
+                                                {project.screenshots.map((_, i) => (
+                                                    <div
+                                                        key={i}
+                                                        className={cn(
+                                                            "w-1.5 h-1.5 rounded-full shadow-sm transition-all",
+                                                            currentScreenshot === i ? "bg-white w-4" : "bg-white/50"
+                                                        )}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+
+                                {/* CONTENT COLUMN (7 cols equivalent -> ~55%) */}
+                                <div className="w-full lg:w-[55%] flex flex-col space-y-6">
+                                    {/* Header */}
+                                    <div className="flex items-start justify-between">
+                                        <div>
+                                            <h3 className="text-3xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
+                                                {project.title}
+                                            </h3>
+                                            <div className="flex flex-wrap gap-2">
+                                                <span className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground bg-secondary/50 px-2.5 py-1 rounded">
+                                                    {project.category}
+                                                </span>
+                                                {project.featured && (
+                                                    <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-foreground bg-primary/10 px-2.5 py-1 rounded">
+                                                        <Star className="w-3 h-3 fill-current" /> Featured
+                                                    </span>
+                                                )}
+                                                <span className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-muted-foreground border border-border px-2.5 py-1 rounded">
+                                                    {project.status}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Description */}
+                                    <p className="text-muted-foreground leading-relaxed text-lg">
+                                        {project.description}
+                                    </p>
+
+                                    {/* Highlights */}
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.highlights.map((highlight, i) => (
+                                            <Badge key={i} variant="outline" className="border-border text-xs font-medium text-muted-foreground py-1 px-3">
+                                                {highlight}
+                                            </Badge>
+                                        ))}
+                                    </div>
+
+                                    {/* Tech Stack */}
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {project.tags.map((tag, i) => (
+                                            <span
+                                                key={i}
+                                                className={cn(
+                                                    "px-3 py-1.5 rounded text-sm font-medium transition-colors",
+                                                    tagStyles
+                                                )}
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Actions */}
+                                    <div className="pt-6 mt-auto flex items-center gap-4">
+                                        <Button asChild className="rounded-full px-8 py-6 text-base bg-foreground text-background hover:bg-foreground/90 font-medium transition-transform active:scale-95 shadow-lg">
+                                            <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                                <ExternalLink className="w-5 h-5" />
+                                                Live Demo
+                                            </a>
+                                        </Button>
+                                        <Button asChild variant="outline" className="rounded-full px-8 py-6 text-base border-border hover:bg-secondary/50 transition-transform active:scale-95">
+                                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                                <Github className="w-5 h-5" />
+                                                View Code
+                                            </a>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Bottom CTA */}
+                <div className="mt-20 text-center border-t border-border pt-16">
+                    <div className="inline-flex flex-col items-center gap-4 max-w-2xl mx-auto">
+                        <TrendingUp className="w-8 h-8 text-foreground mb-1" />
+                        <h3 className="text-2xl font-bold">Have a project in mind?</h3>
+                        <p className="text-muted-foreground">
+                            I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                        </p>
+                        <Button asChild size="lg" className="rounded-full px-8 mt-4 bg-foreground text-background hover:bg-foreground/90">
+                            <a href="mailto:ameyaccod171@gmail.com">Let's Connect</a>
+                        </Button>
+                    </div>
+                </div>
+            </main>
+
+            {/* Lightbox */}
+            {lightboxImage && (
+                <div
+                    className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-200"
+                    onClick={() => setLightboxImage(null)}
+                >
+                    <button
+                        className="absolute top-6 right-6 p-2 rounded-full bg-secondary hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                        onClick={() => setLightboxImage(null)}
+                    >
+                        <X className="w-6 h-6" />
+                    </button>
+                    <img
+                        src={lightboxImage}
+                        alt="Project Full View"
+                        className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </div>
+            )}
+
+            <Footer />
+        </div>
+    );
+};
+
+export default Projects;
