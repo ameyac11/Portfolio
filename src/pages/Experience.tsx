@@ -46,7 +46,7 @@ const Experience = () => {
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col relative">
             <Navbar />
-            <main className="flex-grow pt-32 pb-20">
+            <main className="flex-grow pt-24 md:pt-32 pb-20">
                 <div className="container px-4 mx-auto">
                     {/* Section Header */}
                     <div className="flex flex-col items-center mb-20 fade-in">
@@ -62,11 +62,12 @@ const Experience = () => {
                     <div ref={containerRef} className="max-w-5xl mx-auto relative px-4">
 
                         {/* Vertical Timeline Track (Background) */}
-                        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 rounded-full opacity-30"></div>
+                        <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 rounded-full opacity-30"></div>
 
                         {/* Vertical Scroll Progress Bar (Foreground) */}
+                        {/* Vertical Scroll Progress Bar (Foreground) */}
                         <motion.div
-                            className="absolute left-8 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-primary via-blue-500 to-cyan-400 -translate-x-1/2 rounded-full origin-top z-0"
+                            className="absolute left-5 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-primary via-blue-500 to-cyan-400 -translate-x-1/2 rounded-full origin-top z-0"
                             style={{ height: "100%", scaleY }}
                         />
 
@@ -78,9 +79,9 @@ const Experience = () => {
                                 >
 
                                     {/* Timeline Dot/Icon - Simple Style (No Pulse) */}
-                                    <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full border-4 border-background bg-card shadow-lg z-20 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="absolute top-1/2 left-5 md:left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border-4 border-background bg-card shadow-lg z-20 group-hover:scale-110 transition-transform duration-300">
                                         <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-blue-500/20 flex items-center justify-center border border-primary/30">
-                                            {exp.icon}
+                                            {React.cloneElement(exp.icon as React.ReactElement, { className: "w-4 h-4 md:w-5 md:h-5 text-primary" })}
                                         </div>
                                     </div>
 
@@ -90,7 +91,7 @@ const Experience = () => {
                                         whileInView={{ opacity: 1, y: 0 }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{ duration: 0.5, delay: 0.1 }}
-                                        className="ml-20 md:ml-0 w-[calc(100%-6rem)] md:w-[calc(50%-3rem)] relative"
+                                        className="ml-16 md:ml-0 w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] relative"
                                     >
                                         <div className="p-6 md:p-8 rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300">
 

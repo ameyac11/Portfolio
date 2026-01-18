@@ -88,10 +88,10 @@ const IntroSection = ({ progress, index, total }: any) => {
                 whileInView={{ opacity: 1, y: 0 }}
             >
                 <div className="text-xl md:text-2xl font-mono text-primary mb-4 tracking-widest uppercase">The Narrative</div>
-                <h1 className="text-6xl md:text-9xl font-bold font-heading tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
+                <h1 className="text-5xl md:text-9xl font-bold font-heading tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
                     AMEYA
                 </h1>
-                <p className="text-lg md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
+                <p className="text-lg md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed px-4">
                     Developing Intelligence. <br />
                     Exploring the <span className="text-primary font-medium">Cosmos</span>. <br />
                     Building the Future.
@@ -120,17 +120,17 @@ const FoundationSection = ({ progress, index, total }: any) => {
             style={{ opacity, pointerEvents }}
             className="absolute inset-0 flex items-center justify-center"
         >
-            <div className="grid md:grid-cols-2 gap-12 items-center w-full max-w-6xl">
-                <motion.div style={{ x: xLeft }} className="text-right space-y-2">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full max-w-6xl px-6 md:px-0">
+                <motion.div style={{ x: xLeft }} className="text-left md:text-right space-y-2">
                     <h2 className="text-6xl md:text-8xl font-bold font-heading text-primary leading-none">
                         9.90
                     </h2>
                     <p className="text-xl md:text-2xl font-mono uppercase tracking-widest text-muted-foreground">SGPA</p>
                 </motion.div>
 
-                <motion.div style={{ x: xRight }} className="relative pl-8 border-l-2 border-primary/50">
-                    <h3 className="text-3xl font-bold mb-2">The Foundation</h3>
-                    <p className="text-xl text-foreground font-medium mb-4">B.Tech in CSE (AI & ML)</p>
+                <motion.div style={{ x: xRight }} className="relative pl-6 md:pl-8 border-l-2 border-primary/50">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">The Foundation</h3>
+                    <p className="text-lg md:text-xl text-foreground font-medium mb-4">B.Tech in CSE (AI & ML)</p>
                     <p className="text-muted-foreground leading-relaxed max-w-md">
                         PCET’s Pimpri Chinchwad University <br />
                         <span className="text-sm opacity-70">2023 – Present</span>
@@ -231,7 +231,7 @@ const SparkSection = ({ progress, index, total }: any) => {
                 </div>
 
                 <div className="text-center max-w-2xl px-4">
-                    <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 tracking-tight">
                         The Spark
                     </h2>
                     <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -255,11 +255,11 @@ const BuildSection = ({ progress, index, total }: any) => {
             style={{ opacity, pointerEvents, perspective: 1000 }}
             className="absolute inset-0 flex items-center justify-center"
         >
-            <div className="flex flex-col md:flex-row gap-12 items-center max-w-6xl w-full px-4">
-                <div className="order-2 md:order-1 flex-1 space-y-6">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center max-w-6xl w-full px-4">
+                <div className="order-2 md:order-1 flex-1 space-y-6 text-center md:text-left">
                     <Badge variant="outline" className="border-orange-500/50 text-orange-500">First Production Build</Badge>
-                    <h2 className="text-5xl font-bold font-heading">DataNestTX</h2>
-                    <p className="text-xl text-muted-foreground leading-relaxed">
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading">DataNestTX</h2>
+                    <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                         My first end-to-end platform integrating complex backend logic with smooth frontend experiences.
                     </p>
                 </div>
@@ -314,46 +314,72 @@ const FocusSection = ({ progress, index, total }: any) => {
         >
             <div className="w-full max-w-5xl px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-5xl md:text-6xl font-bold font-heading mb-4">What I Do</h2>
-                    <p className="text-xl text-muted-foreground">
+                    <h2 className="text-4xl md:text-6xl font-bold font-heading mb-4">What I Do</h2>
+                    <p className="text-lg md:text-xl text-muted-foreground">
                         Building intelligent systems & scalable architectures.
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
-                    <Card className="bg-card border-border shadow-md backdrop-blur-sm transition-all hover:shadow-lg">
-                        <CardContent className="p-6 space-y-4">
-                            <div className="p-3 bg-blue-500/10 w-fit rounded-lg text-blue-500">
-                                <Cpu className="w-8 h-8" />
+                {/* Grid Layout - Compact on Mobile */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8 w-full">
+                    {/* Card 1 */}
+                    <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
+                        {/* Gradient Blob Effect */}
+                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-blue-500/20" />
+
+                        <CardContent className="p-5 md:p-8 relative z-10 flex md:flex-col items-center md:items-start gap-4 md:gap-0 h-full">
+                            <div className="shrink-0 p-3 md:p-4 bg-blue-500/10 w-fit rounded-xl md:rounded-2xl text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-blue-500/25 group-hover:scale-110 mb-0 md:mb-6">
+                                <Cpu className="w-6 h-6 md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl font-bold">AI Engineering</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                Designing agentic workflows and RAG systems (CorpusAI) that reason and act autonomously.
-                            </p>
+                            <div className="text-left w-full">
+                                <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-3 tracking-tight group-hover:text-blue-500 transition-colors">AI Engineering</h3>
+                                <p className="text-sm md:text-base text-muted-foreground leading-relaxed md:line-clamp-none line-clamp-2">
+                                    Designing agentic workflows and RAG systems (CorpusAI) that reason and act autonomously.
+                                </p>
+                            </div>
+                            <div className="hidden md:flex mt-auto pt-6 items-center text-sm font-medium text-blue-500 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                Learn more <ArrowRight className="w-4 h-4 ml-1" />
+                            </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-card border-border shadow-md backdrop-blur-sm transition-all hover:shadow-lg">
-                        <CardContent className="p-6 space-y-4">
-                            <div className="p-3 bg-green-500/10 w-fit rounded-lg text-green-500">
-                                <Terminal className="w-8 h-8" />
+                    {/* Card 2 */}
+                    <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
+                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-green-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-green-500/20" />
+
+                        <CardContent className="p-5 md:p-8 relative z-10 flex md:flex-col items-center md:items-start gap-4 md:gap-0 h-full">
+                            <div className="shrink-0 p-3 md:p-4 bg-green-500/10 w-fit rounded-xl md:rounded-2xl text-green-500 group-hover:bg-green-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-green-500/25 group-hover:scale-110 mb-0 md:mb-6">
+                                <Terminal className="w-6 h-6 md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl font-bold">Full Stack</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                Building end-to-end applications with React, Node, and specialized Cloudflare architecture.
-                            </p>
+                            <div className="text-left w-full">
+                                <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-3 tracking-tight group-hover:text-green-500 transition-colors">Full Stack</h3>
+                                <p className="text-sm md:text-base text-muted-foreground leading-relaxed md:line-clamp-none line-clamp-2">
+                                    Building end-to-end applications with Python and specialized Cloud architecture.
+                                </p>
+                            </div>
+                            <div className="hidden md:flex mt-auto pt-6 items-center text-sm font-medium text-green-500 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                View projects <ArrowRight className="w-4 h-4 ml-1" />
+                            </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="bg-card border-border shadow-md backdrop-blur-sm transition-all hover:shadow-lg">
-                        <CardContent className="p-6 space-y-4">
-                            <div className="p-3 bg-purple-500/10 w-fit rounded-lg text-purple-500">
-                                <Rocket className="w-8 h-8" />
+                    {/* Card 3 */}
+                    <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
+                        <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-purple-500/20" />
+
+                        <CardContent className="p-5 md:p-8 relative z-10 flex md:flex-col items-center md:items-start gap-4 md:gap-0 h-full">
+                            <div className="shrink-0 p-3 md:p-4 bg-purple-500/10 w-fit rounded-xl md:rounded-2xl text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-purple-500/25 group-hover:scale-110 mb-0 md:mb-6">
+                                <Rocket className="w-6 h-6 md:w-8 md:h-8" />
                             </div>
-                            <h3 className="text-xl font-bold">Innovation</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                                Constantly exploring new frontiers in Generative AI, System Design, and UI/UX.
-                            </p>
+                            <div className="text-left w-full">
+                                <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-3 tracking-tight group-hover:text-purple-500 transition-colors">Innovation</h3>
+                                <p className="text-sm md:text-base text-muted-foreground leading-relaxed md:line-clamp-none line-clamp-2">
+                                    Exploring AI, Neural Networks, and the Universe.
+                                </p>
+                            </div>
+                            <div className="hidden md:flex mt-auto pt-6 items-center text-sm font-medium text-purple-500 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                Explore <ArrowRight className="w-4 h-4 ml-1" />
+                            </div>
                         </CardContent>
                     </Card>
                 </div>
@@ -374,7 +400,7 @@ const EducationTitleSection = ({ progress, index, total }: any) => {
         >
             <div>
                 <BookOpen className="w-16 h-16 mx-auto mb-6 text-green-500" />
-                <h1 className="text-6xl md:text-8xl font-bold font-heading tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
+                <h1 className="text-4xl md:text-8xl font-bold font-heading tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
                     EDUCATION
                 </h1>
                 <p className="mt-4 text-xl text-muted-foreground font-light tracking-widest uppercase">
@@ -408,7 +434,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
         >
             <div className="max-w-2xl w-full px-4">
                 {/* Timeline with explicit Silver Vertical Line */}
-                <div className="relative pl-8 ml-4 space-y-12">
+                <div className="relative pl-6 md:pl-8 ml-2 md:ml-4 space-y-8 md:space-y-12">
                     {/* Animated Vertical Line */}
                     <div className="absolute left-0 top-2 bottom-2 w-0.5 bg-zinc-200 dark:bg-zinc-800">
                         <motion.div
@@ -431,7 +457,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
                                 className="relative"
                             >
                                 {/* Dot aligned with the border line */}
-                                <span className="absolute -left-[41px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-background border-2 border-primary z-10 shadow-[0_0_10px_rgba(var(--primary-rgb),0.3)]">
+                                <span className="absolute -left-[33px] md:-left-[41px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-background border-2 border-primary z-10 shadow-[0_0_10px_rgba(var(--primary-rgb),0.3)]">
                                     <motion.span
                                         initial={{ scale: 0 }}
                                         style={{ scale: itemOpacity }}

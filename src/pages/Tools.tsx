@@ -115,40 +115,40 @@ const Tools = () => {
         <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20">
             <Navbar />
 
-            <main className="flex-grow pt-32 pb-20">
+            <main className="flex-grow pt-24 md:pt-32 pb-20">
                 <div className="container px-4 mx-auto max-w-7xl">
 
                     {/* Header Section */}
-                    <div className="flex flex-col items-center mb-20 fade-in relative">
+                    <div className="flex flex-col items-center mb-12 md:mb-20 fade-in relative px-4">
                         {/* Ambient Background Glow */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-secondary/30 rounded-full blur-[100px] -z-10 pointer-events-none opacity-50 dark:opacity-30"></div>
 
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-md mb-6 shadow-sm hover:border-primary/30 transition-colors cursor-default">
-                            <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                            <span className="text-sm font-medium text-foreground/80">Toolset</span>
+                        <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-md mb-4 md:mb-6 shadow-sm hover:border-primary/30 transition-colors cursor-default">
+                            <Sparkles className="w-3.5 md:w-4 h-3.5 md:h-4 text-primary animate-pulse" />
+                            <span className="text-xs md:text-sm font-medium text-foreground/80">Toolset</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-center tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/60">
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 text-center tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/60">
                             ToolStack
                         </h1>
-                        <div className="w-24 h-1.5 bg-gradient-to-r from-foreground to-transparent rounded-full mb-6"></div>
+                        <div className="w-20 md:w-24 h-1.5 bg-gradient-to-r from-foreground to-transparent rounded-full mb-4 md:mb-6"></div>
 
-                        <p className="max-w-2xl text-center text-lg text-muted-foreground leading-relaxed">
+                        <p className="max-w-2xl text-center text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
                             A curated collection of modern technologies and advanced tools I utilize to build exceptional digital experiences.
                         </p>
                     </div>
 
                     {/* Filter Tabs - Modern Floating Pill Design */}
-                    <div className="flex justify-center mb-20 fade-in stagger-1 sticky top-24 z-30">
-                        <div className="flex flex-wrap justify-center gap-2 p-2 bg-background/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-full shadow-2xl shadow-black/5 dark:shadow-black/20 ring-1 ring-black/5">
+                    <div className="flex justify-center mb-12 md:mb-20 fade-in stagger-1 md:sticky md:top-24 z-20">
+                        <div className="flex flex-wrap justify-center gap-2 p-2 bg-background/95 md:bg-background/80 dark:bg-zinc-900/95 md:dark:bg-zinc-900/80 backdrop-blur-xl border border-border/50 rounded-3xl md:rounded-full shadow-lg md:shadow-2xl">
                             {categories.map((category) => (
                                 <button
                                     key={category.id}
                                     onClick={() => setSelectedCategory(category.id)}
-                                    className={`relative px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-500 ease-out whitespace-nowrap overflow-hidden
+                                    className={`relative px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ease-out whitespace-nowrap overflow-hidden
                                         ${selectedCategory === category.id
-                                            ? 'text-background shadow-lg'
-                                            : 'text-muted-foreground hover:text-foreground hover:bg-white/50 dark:hover:bg-white/10'
+                                            ? 'text-background shadow-md scale-105'
+                                            : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                                         }`}
                                 >
                                     {selectedCategory === category.id && (
@@ -164,20 +164,20 @@ const Tools = () => {
                     </div>
 
                     {/* Content Grid */}
-                    <div className="space-y-24">
+                    <div className="space-y-16 md:space-y-24">
                         {filteredSkills.map((skillGroup, groupIndex) => (
                             <div key={skillGroup.categoryId} className="fade-in" style={{ animationDelay: `${groupIndex * 0.1}s` }}>
                                 {/* Category Label */}
-                                <div className="flex items-center gap-4 mb-10 pl-2 opacity-80 group">
+                                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10 px-2 opacity-80 group">
                                     <div className="h-px flex-grow bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-primary/50 transition-colors duration-700"></div>
-                                    <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors duration-500">
+                                    <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors duration-500">
                                         {skillGroup.category}
                                     </span>
                                     <div className="h-px flex-grow bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-primary/50 transition-colors duration-700"></div>
                                 </div>
 
                                 {/* Skills Grid - Masonry-ish Feel */}
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 gap-y-12">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 gap-y-8 md:gap-y-12">
                                     {skillGroup.items.map((skill, skillIndex) => (
                                         <div
                                             key={skillIndex}
@@ -186,9 +186,9 @@ const Tools = () => {
                                             onMouseLeave={() => setHoveredSkill(null)}
                                         >
                                             {/* Icon Container with Glow */}
-                                            <div className="relative mb-6 w-24 h-24 flex items-center justify-center rounded-full bg-secondary/30 border border-white/5 dark:border-white/5 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 group-hover:border-primary/20 z-10">
+                                            <div className="relative mb-4 md:mb-6 w-20 md:w-24 h-20 md:h-24 flex items-center justify-center rounded-full bg-secondary/30 border border-border/30 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2 group-hover:border-primary/20 z-10">
 
-                                                <div className="relative z-10 w-12 h-12 flex items-center justify-center transition-transform duration-500">
+                                                <div className="relative z-10 w-10 md:w-12 h-10 md:h-12 flex items-center justify-center transition-transform duration-500">
                                                     {React.cloneElement(skill.icon as React.ReactElement, {
                                                         className: `${(skill.icon as React.ReactElement).props.className || ''} w-full h-full transition-transform duration-500`
                                                     })}
@@ -202,10 +202,10 @@ const Tools = () => {
 
                                             {/* Text Content */}
                                             <div className="text-center space-y-1 relative z-20">
-                                                <h3 className="font-semibold text-lg tracking-tight group-hover:text-primary transition-colors duration-300">
+                                                <h3 className="font-semibold text-sm md:text-base lg:text-lg tracking-tight group-hover:text-primary transition-colors duration-300">
                                                     {skill.name}
                                                 </h3>
-                                                <p className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0 absolute top-full left-1/2 -translate-x-1/2 w-48 pt-2">
+                                                <p className="hidden md:block text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0 absolute top-full left-1/2 -translate-x-1/2 w-48 pt-2">
                                                     {skill.description}
                                                 </p>
                                             </div>

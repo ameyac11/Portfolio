@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col">
             <Navbar />
-            <main className="flex-grow pt-24">
+            <main className="flex-grow pt-20 md:pt-24">
                 <ContactSection />
             </main>
             <Footer />
