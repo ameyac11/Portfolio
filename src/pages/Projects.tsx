@@ -71,10 +71,10 @@ const Projects = () => {
             title: 'LiteNet: Custom CNN Model',
             description: 'A comprehensive deep learning project featuring a custom Convolutional Neural Network architecture for advanced image classification. Includes comprehensive data preprocessing pipelines, model training optimization, thorough evaluation metrics, and production-ready deployment solutions.',
             screenshots: [
-                '/Litenet_1.png',
-                '/Litenet_2.png',
-                '/Litenet_3.png',
-                '/Litenet_4.png'
+                '/L_1.png',
+                '/L_2.png',
+                '/L_3.png',
+                '/L_4.png'
             ],
             tags: ['Pytorch', 'Python', 'CNN'],
             demoLink: 'https://litenet.vercel.app',
