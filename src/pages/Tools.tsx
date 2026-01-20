@@ -112,7 +112,7 @@ const Tools = () => {
         : skills.filter(skillGroup => skillGroup.categoryId === selectedCategory);
 
     return (
-        <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20">
+        <div className="min-h-screen bg-background text-foreground flex flex-col font-sans selection:bg-primary/20 overflow-x-hidden">
             <Navbar />
 
             <main className="flex-grow pt-24 md:pt-32 pb-20">
@@ -121,7 +121,7 @@ const Tools = () => {
                     {/* Header Section */}
                     <div className="flex flex-col items-center mb-12 md:mb-20 fade-in relative px-4">
                         {/* Ambient Background Glow */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-secondary/30 rounded-full blur-[100px] -z-10 pointer-events-none opacity-50 dark:opacity-30"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] md:w-[500px] h-[300px] bg-secondary/30 rounded-full blur-[100px] -z-10 pointer-events-none opacity-50 dark:opacity-30"></div>
 
                         <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 rounded-full bg-secondary/50 border border-border/50 backdrop-blur-md mb-4 md:mb-6 shadow-sm hover:border-primary/30 transition-colors cursor-default">
                             <Sparkles className="w-3.5 md:w-4 h-3.5 md:h-4 text-primary animate-pulse" />

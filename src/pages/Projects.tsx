@@ -71,9 +71,10 @@ const Projects = () => {
             title: 'LiteNet: Custom CNN Model',
             description: 'A comprehensive deep learning project featuring a custom Convolutional Neural Network architecture for advanced image classification. Includes comprehensive data preprocessing pipelines, model training optimization, thorough evaluation metrics, and production-ready deployment solutions.',
             screenshots: [
-                '/LiteNet_1.png',
-                '/LiteNet_2.png',
-                '/LiteNet_3.png'
+                '/Litenet_1.png',
+                '/Litenet_2.png',
+                '/Litenet_3.png',
+                '/Litenet_4.png'
             ],
             tags: ['Pytorch', 'Python', 'CNN'],
             demoLink: 'https://litenet.vercel.app',
@@ -88,8 +89,7 @@ const Projects = () => {
             title: 'Portfolio Website',
             description: 'A modern, responsive portfolio website showcasing professional skills, comprehensive project portfolio, and seamless contact integration. Built with cutting-edge technologies and featuring elegant animations, optimized performance, and exceptional user experience across all devices.',
             screenshots: [
-                'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80',
-                'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80'
+                '/P_1.png'
             ],
             tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'TailwindCSS'],
             demoLink: '#',
@@ -133,9 +133,9 @@ const Projects = () => {
         <div className="min-h-screen bg-background text-foreground flex flex-col">
             <Navbar />
 
-            <main className="flex-grow pt-24 md:pt-28 pb-20 container px-4 mx-auto max-w-6xl">
+            <main className="flex-grow pt-24 md:pt-32 pb-24 container px-4 md:px-8 mx-auto max-w-6xl">
                 {/* Minimal Header */}
-                <div className="flex flex-col items-center mb-12 md:mb-16 text-center space-y-3 md:space-y-4 px-4">
+                <div className="flex flex-col items-center mb-16 md:mb-24 text-center space-y-4 md:space-y-6 px-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs md:text-sm font-medium">
                         <LayoutList className="w-3.5 md:w-4 h-3.5 md:h-4" />
                         <span>Portfolio</span>
@@ -172,7 +172,7 @@ const Projects = () => {
                 </div>
 
                 {/* Zig-Zag List View */}
-                <div className="space-y-16">
+                <div className="space-y-24 md:space-y-32">
                     {filteredProjects.map((project, index) => {
                         const currentScreenshot = activeScreenshot[index] || 0;
                         const isEven = index % 2 === 0;
@@ -187,7 +187,7 @@ const Projects = () => {
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
                                 {/* IMAGE COLUMN (5 cols equivalent -> ~45%) */}
-                                <div className="w-full lg:w-[45%] relative rounded-2xl overflow-hidden bg-secondary/10 border border-border shadow-sm group-hover:shadow-md transition-shadow duration-300 aspect-[16/10] md:aspect-video lg:aspect-[4/3] max-h-[280px] md:max-h-none">
+                                <div className="w-full lg:w-[45%] relative rounded-3xl overflow-hidden bg-secondary/10 border border-border shadow-sm group-hover:shadow-md transition-all duration-500 aspect-[4/3] md:aspect-video lg:aspect-[4/3] max-h-[350px] md:max-h-none">
                                     <div
                                         className="flex h-full transition-transform duration-500 ease-in-out"
                                         style={{ transform: `translateX(-${currentScreenshot * 100}%)` }}
@@ -324,24 +324,47 @@ const Projects = () => {
                 </div>
             </main>
 
-            {/* Lightbox */}
+            {/* Lightbox Modal Window */}
             {lightboxImage && (
                 <div
-                    className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-200"
+                    className="fixed inset-0 z-[60] bg-zinc-950/90 backdrop-blur-md flex items-center justify-center p-4 md:p-12 animate-in fade-in zoom-in-95 duration-300"
                     onClick={() => setLightboxImage(null)}
                 >
-                    <button
-                        className="absolute top-6 right-6 p-2 rounded-full bg-secondary hover:bg-destructive hover:text-destructive-foreground transition-colors"
-                        onClick={() => setLightboxImage(null)}
-                    >
-                        <X className="w-6 h-6" />
-                    </button>
-                    <img
-                        src={lightboxImage}
-                        alt="Project Full View"
-                        className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+                    {/* Modal Window Container */}
+                    <div
+                        className="relative bg-zinc-900 rounded-2xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] border border-zinc-800 max-w-5xl w-full flex flex-col overflow-hidden max-h-[85vh]"
                         onClick={(e) => e.stopPropagation()}
-                    />
+                    >
+                        {/* Header Bar */}
+                        <div className="flex items-center justify-between px-8 py-5 border-b border-zinc-800 bg-zinc-900/50 flex-shrink-0">
+                            <div className="flex flex-col gap-0.5">
+                                <h3 className="text-lg font-bold text-zinc-100 tracking-tight">Project Preview</h3>
+                                <p className="text-xs text-zinc-500 font-medium uppercase tracking-widest px-1">Visual Intelligence</p>
+                            </div>
+                            <button
+                                className="p-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300 border border-zinc-700/50 hover:border-zinc-600 shadow-sm group"
+                                onClick={() => setLightboxImage(null)}
+                                aria-label="Close preview"
+                            >
+                                <X className="w-5 h-5 group-hover:scale-110 group-active:scale-95 transition-transform" />
+                            </button>
+                        </div>
+
+                        {/* Image Container */}
+                        <div className="flex-1 flex items-center justify-center p-6 md:p-10 bg-black/20 overflow-auto min-h-0">
+                            <img
+                                src={lightboxImage}
+                                alt="Project Full View"
+                                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl ring-1 ring-white/5"
+                            />
+                        </div>
+
+                        {/* Footer / Status Bar (Subtle detail) */}
+                        <div className="px-8 py-3 bg-zinc-900 border-t border-zinc-800 flex justify-between items-center text-[10px] text-zinc-600 font-mono tracking-tighter uppercase">
+                            <span>Image Optimized</span>
+                            <span>Scale: Fit</span>
+                        </div>
+                    </div>
                 </div>
             )}
 

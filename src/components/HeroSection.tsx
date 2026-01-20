@@ -6,7 +6,7 @@ import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 
 const HeroSection = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24 md:pt-32 pb-16">
             {/* Abstract Background Elements - REMOVED for solid background */}
 
 
@@ -28,7 +28,7 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight md:leading-tight"
                     >
                         Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-zinc-500 to-zinc-500 dark:to-accent">Ameya Chopade</span>
                     </motion.h1>
@@ -37,7 +37,7 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8"
+                        className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 px-4 md:px-0 leading-relaxed"
                     >
                         A passionate Full Stack Developer crafting beautiful, responsive, and user-friendly web experiences with modern technologies.
                     </motion.p>
@@ -46,17 +46,17 @@ const HeroSection = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
-                        className="flex flex-wrap justify-center gap-4 mb-12"
+                        className="flex flex-col sm:flex-row justify-center gap-4 mb-16 w-full max-w-md mx-auto sm:max-w-none"
                     >
                         <Link
                             to="/projects"
-                            className="px-8 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity flex items-center gap-2"
+                            className="px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                         >
                             View Projects <ArrowRight className="w-4 h-4" />
                         </Link>
                         <Link
                             to="/about"
-                            className="px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 transition-colors border border-border"
+                            className="px-8 py-3.5 rounded-full bg-secondary text-secondary-foreground font-medium hover:bg-secondary/80 transition-all active:scale-95 border border-border shadow-sm flex items-center justify-center"
                         >
                             About Me
                         </Link>

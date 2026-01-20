@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
-import { Home, User, Code2, Briefcase, Mail, Sun, Moon, MapPin, X, ChevronRight } from "lucide-react";
+import { Home, User, Code2, Briefcase, Mail, Sun, Moon, MapPin, X, ChevronRight, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -107,9 +107,9 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${scrolled
           ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
           : "bg-background/80 backdrop-blur-md"
-          } md:py-4 py-3 px-4 md:px-8`}
+          } py-3 md:py-4 px-4 md:px-8`}
       >
-        <div className="max-w-[1920px] mx-auto flex items-center justify-between">
+        <div className="w-full max-w-[1920px] mx-auto flex items-center justify-between gap-4">
 
           {/* --- LEFT: LOGO --- */}
           <div className="flex items-center gap-2 z-[10001]">
@@ -163,28 +163,37 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Toggle - Always Visible Premium Design */}
-          <div className="flex lg:hidden items-center gap-3 z-[10001] relative">
-            {/* Time Display on Mobile */}
-            <div className="px-3 py-1.5 rounded-lg bg-secondary/60 backdrop-blur-md border border-border/40 text-xs font-mono tabular-nums text-foreground/80">
-              {time.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
-            </div>
-
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="relative w-11 h-11 flex items-center justify-center rounded-xl bg-foreground/10 backdrop-blur-md border-2 border-foreground/20 hover:bg-foreground/20 hover:border-foreground/30 transition-all duration-300 active:scale-95"
-              aria-label="Toggle menu"
-            >
-              <div className="flex flex-col gap-1.5 w-6">
-                <span className={`h-0.5 bg-foreground rounded-full transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                <span className={`h-0.5 bg-foreground rounded-full transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 scale-0' : ''}`} />
-                <span className={`h-0.5 bg-foreground rounded-full transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-              </div>
-            </button>
-          </div>
-
         </div>
       </nav>
+
+      {/* Mobile Menu Toggle - Portal to Body (Bypasses all layout constraints) */}
+      {typeof document !== "undefined" && createPortal(
+        <div className="fixed top-3.5 right-4 z-[999999] lg:hidden flex items-center gap-3">
+          {/* Time Display (Portal) */}
+          <div className="hidden sm:block px-2.5 py-1.5 rounded-lg bg-secondary/80 backdrop-blur-md border border-border/40 text-[10px] sm:text-xs font-mono tabular-nums text-foreground/80 shadow-sm">
+            {time.toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit' })}
+          </div>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="w-10 h-10 flex items-center justify-center rounded-xl bg-secondary/80 hover:bg-secondary backdrop-blur-md border border-border/40 text-foreground shadow-sm transition-all duration-300 active:scale-95 group"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={mobileMenuOpen ? 'open' : 'closed'}
+                initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                transition={{ duration: 0.2 }}
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </motion.div>
+            </AnimatePresence>
+          </button>
+        </div>,
+        document.body
+      )}
 
       {typeof document !== "undefined" &&
         createPortal(
@@ -196,7 +205,7 @@ const Navbar = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.3 }}
                   className="fixed inset-0 z-[2147483646] bg-black/60 backdrop-blur-sm lg:hidden"
                   onClick={() => setMobileMenuOpen(false)}
                 />
@@ -206,30 +215,30 @@ const Navbar = () => {
                   initial={{ x: "100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "100%" }}
-                  transition={{ type: "spring", damping: 30, stiffness: 300 }}
-                  className="fixed inset-y-0 right-0 z-[2147483647] w-full max-w-sm bg-background/95 backdrop-blur-2xl border-l border-white/10 shadow-2xl lg:hidden flex flex-col"
+                  transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                  className="fixed inset-y-0 right-0 z-[2147483647] w-full max-w-sm bg-background/90 backdrop-blur-3xl border-l border-white/10 shadow-2xl lg:hidden flex flex-col"
                 >
 
 
                   {/* Header */}
-                  <div className="relative z-10 flex items-center justify-between px-6 py-5 border-b border-white/5">
+                  <div className="relative z-10 flex items-center justify-between px-8 py-6 border-b border-white/5">
                     <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 group">
-                      <div className="w-10 h-10 bg-cyan-500/10 rounded-xl flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors duration-300">
-                        <Code2 className="w-5 h-5 text-cyan-500" />
+                      <div className="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors duration-300">
+                        <Code2 className="w-6 h-6 text-cyan-500" />
                       </div>
-                      <span className="font-bold text-lg tracking-tight text-foreground">Portfolio</span>
+                      <span className="font-bold text-xl tracking-tight text-foreground">Portfolio</span>
                     </Link>
                     <button
                       onClick={() => setMobileMenuOpen(false)}
-                      className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-300"
+                      className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10"
                     >
                       <X className="w-6 h-6" />
                     </button>
                   </div>
 
                   {/* Navigation */}
-                  <div className="relative z-10 flex-1 overflow-y-auto py-8 px-4">
-                    <nav className="flex flex-col gap-2">
+                  <div className="relative z-10 flex-1 overflow-y-auto py-10 px-6">
+                    <nav className="flex flex-col gap-4">
                       {navLinks.map((link, i) => {
                         const isActive = location.pathname === link.path;
                         return (
@@ -242,25 +251,27 @@ const Navbar = () => {
                             <Link
                               to={link.path}
                               onClick={() => setMobileMenuOpen(false)}
-                              className={`group relative flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${isActive
-                                ? "text-cyan-500"
-                                : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                              className={`group relative flex items-center justify-between p-5 rounded-2xl transition-all duration-300 border border-transparent ${isActive
+                                ? "bg-cyan-500/10 border-cyan-500/20"
+                                : "hover:bg-white/5 hover:border-white/10"
                                 }`}
                             >
-                              <div className="flex items-center gap-4">
-                                <span className={`p-2 rounded-lg transition-colors duration-300 ${isActive ? "text-cyan-500" : "bg-white/5 text-muted-foreground group-hover:bg-white/10 group-hover:text-foreground"
+                              <div className="flex items-center gap-5">
+                                <span className={`p-2.5 rounded-xl transition-colors duration-300 ${isActive ? "text-cyan-500 bg-cyan-500/10" : "bg-white/5 text-muted-foreground group-hover:bg-white/10 group-hover:text-foreground"
                                   }`}>
                                   {React.cloneElement(link.icon as React.ReactElement, { className: "w-5 h-5" })}
                                 </span>
-                                <span className="font-medium text-lg">{link.name}</span>
+                                <span className={`text-lg font-medium transition-colors ${isActive ? "text-cyan-500" : "text-muted-foreground group-hover:text-foreground"}`}>
+                                  {link.name}
+                                </span>
                               </div>
                               {isActive && (
                                 <motion.div
                                   layoutId="activeIndicator"
-                                  className="w-1.5 h-1.5 rounded-full bg-cyan-500"
+                                  className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]"
                                 />
                               )}
-                              {!isActive && <ChevronRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />}
+                              {!isActive && <ChevronRight className="w-5 h-5 text-muted-foreground/50 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />}
                             </Link>
                           </motion.div>
                         );
@@ -269,26 +280,26 @@ const Navbar = () => {
                   </div>
 
                   {/* Footer */}
-                  <div className="relative z-10 px-6 py-6 border-t border-white/5 bg-background/50 backdrop-blur-xl">
-                    <div className="flex flex-col gap-4">
+                  <div className="relative z-10 px-8 py-8 border-t border-white/5 bg-background/40 backdrop-blur-xl mt-auto">
+                    <div className="flex flex-col gap-5">
                       {/* Theme Toggle */}
                       <button
                         onClick={(e) => toggleTheme(e)}
-                        className="flex items-center justify-between w-full p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all duration-300 group"
+                        className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all duration-300 group active:scale-[0.98]"
                       >
                         <span className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground">
                           {theme === 'light' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                          <span className="font-medium">{theme === 'light' ? 'Light' : 'Dark'} Mode</span>
+                          <span className="font-medium text-lg">{theme === 'light' ? 'Light' : 'Dark'} Mode</span>
                         </span>
-                        <div className={`w-10 h-6 rounded-full p-1 transition-colors duration-300 ${theme === 'dark' ? 'bg-cyan-500' : 'bg-zinc-600'}`}>
-                          <div className={`w-4 h-4 rounded-full bg-white shadow-sm transition-transform duration-300 ${theme === 'dark' ? 'translate-x-4' : 'translate-x-0'}`} />
+                        <div className={`w-12 h-7 rounded-full p-1 transition-colors duration-300 ${theme === 'dark' ? 'bg-cyan-500' : 'bg-zinc-600'}`}>
+                          <div className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform duration-300 ${theme === 'dark' ? 'translate-x-5' : 'translate-x-0'}`} />
                         </div>
                       </button>
 
                       {/* Time & Copyright */}
-                      <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                      <div className="flex items-center justify-between text-xs text-muted-foreground/60 px-2">
                         <span>© 2026 Portfolio</span>
-                        <span className="font-mono tabular-nums bg-white/5 px-2 py-1 rounded-md">
+                        <span className="font-mono tabular-nums bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                           {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                         </span>
                       </div>

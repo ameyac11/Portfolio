@@ -28,6 +28,17 @@ const ContactSection = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // Domain Restriction
+    if (window.location.hostname !== 'ameyac11.vercel.app') {
+      toast({
+        title: "Submission Restricted",
+        description: "This contact form can only be used from the official portfolio website.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const access_key = import.meta.env.VITE_WEB3_FORMS_API;
 

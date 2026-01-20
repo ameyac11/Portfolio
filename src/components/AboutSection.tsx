@@ -77,7 +77,7 @@ const AboutSection = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12 fade-in stagger-2">
-          <div className="flex gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700">
+          <div className="flex flex-wrap justify-center gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700">
             {[
               { id: 'story', label: 'My Story' },
               { id: 'skills', label: 'Values' },
@@ -86,9 +86,9 @@ const AboutSection = () => {
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${activeTab === tab.id
-                    ? 'bg-primary text-white shadow-lg transform scale-105'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                className={`px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 ${activeTab === tab.id
+                  ? 'bg-primary text-white shadow-lg transform scale-105'
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                   }`}
               >
                 {tab.label}
@@ -166,7 +166,7 @@ const AboutSection = () => {
             <div className={`transition-all duration-300 ${isTransitioning ? 'opacity-0 transform translate-y-4' : 'opacity-100 transform translate-y-0'}`}>
               {activeTab === 'story' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold font-heading">My Journey</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading">My Journey</h3>
                   <div className="space-y-4 text-gray-600 dark:text-gray-400">
                     <p className="text-lg leading-relaxed">
                       I'm an aspiring AI and Machine Learning developer with a passion for creating intelligent
@@ -197,8 +197,8 @@ const AboutSection = () => {
 
               {activeTab === 'skills' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold font-heading">Core Values</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading">Core Values</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {achievements.map((achievement, index) => (
                       <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group">
                         <CardContent className="p-6 text-center">
@@ -216,8 +216,8 @@ const AboutSection = () => {
 
               {activeTab === 'facts' && (
                 <div className="space-y-6">
-                  <h3 className="text-3xl font-bold font-heading">Fun Facts</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading">Fun Facts</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {personalFacts.map((fact, index) => (
                       <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group">
                         <CardContent className="p-6">

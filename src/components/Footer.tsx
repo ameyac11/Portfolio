@@ -31,17 +31,17 @@ const Footer = () => {
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-12 gap-12 mb-16">
           {/* Brand Section - Col Span 5 */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="md:col-span-5 space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center shadow-sm">
-                <Code2 className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm">
+                <Code2 className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <h3 className="text-xl font-bold tracking-tight">Ameya Chopade</h3>
                 <p className="text-sm text-muted-foreground">AI & ML Developer</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed max-w-sm">
+            <p className="text-muted-foreground leading-relaxed max-w-sm text-base">
               Passionate about creating intelligent solutions with cutting-edge AI and Machine Learning technologies. Let's build the future together!
             </p>
             <div className="flex gap-4 pt-2">
@@ -51,7 +51,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center text-muted-foreground hover:text-foreground transition-all duration-300 hover:-translate-y-1"
+                  className="w-12 h-12 flex items-center justify-center text-muted-foreground hover:text-foreground bg-secondary/50 hover:bg-secondary rounded-xl transition-all duration-300 hover:-translate-y-1"
                   aria-label={social.label}
                 >
                   {social.icon}

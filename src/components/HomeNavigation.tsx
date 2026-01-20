@@ -20,13 +20,13 @@ const HomeNavigation = () => {
                     <p className="text-muted-foreground">Discover my work, skills, and professional journey.</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-min">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 auto-rows-min">
 
                     {/* 1. ABOUT CARD - Left Top - (Span 5) */}
                     <Link to="/about" className="md:col-span-5 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="h-full bg-card border border-border/50 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                            className="h-full bg-card border border-border/50 rounded-3xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 min-h-[320px] md:min-h-0"
                         >
                             <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-6">
@@ -61,7 +61,7 @@ const HomeNavigation = () => {
                     <Link to="/tools" className="md:col-span-7 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
-                            className="h-full bg-gradient-to-br from-card to-card/50 border border-border/50 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                            className="h-full bg-gradient-to-br from-card to-card/50 border border-border/50 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 min-h-[320px] md:min-h-0"
                         >
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="flex justify-between items-start mb-4">

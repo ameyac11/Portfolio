@@ -163,15 +163,15 @@ const SkillsSection = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex justify-center mb-12 fade-in stagger-2">
-          <div className="flex flex-wrap gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg">
+        <div className="flex justify-center mb-12 fade-in stagger-2 px-4">
+          <div className="flex flex-wrap justify-center gap-2 p-2 bg-white/50 dark:bg-gray-800/50 rounded-2xl backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${selectedCategory === category.id
-                    ? 'bg-primary text-white shadow-lg transform scale-105'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105'
+                className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base font-medium transition-all duration-300 ${selectedCategory === category.id
+                  ? 'bg-primary text-white shadow-lg transform scale-105'
+                  : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105'
                   }`}
               >
                 {category.icon}
@@ -182,17 +182,17 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
           {filteredSkills.map((skillGroup, index) => (
             <Card
               key={skillGroup.categoryId}
               className={`border-0 shadow-xl hover:shadow-2xl transition-all duration-500 ${isDark
-                  ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700'
-                  : 'bg-gradient-to-br from-white to-gray-50 border-gray-200'
+                ? 'bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700'
+                : 'bg-gradient-to-br from-white to-gray-50 border-gray-200'
                 } hover:border-primary hover:-translate-y-2 skill-card fade-in`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-6 lg:p-8">
+              <CardContent className="p-6 md:p-7 lg:p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`p-3 rounded-xl ${isDark ? 'bg-primary/20' : 'bg-primary/10'}`}>
                     <Brain className="w-6 h-6 text-primary" />
@@ -200,7 +200,7 @@ const SkillsSection = () => {
                   <h3 className="text-xl lg:text-2xl font-bold text-primary">{skillGroup.category}</h3>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
                   {skillGroup.items.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
@@ -209,8 +209,8 @@ const SkillsSection = () => {
                       onMouseLeave={() => setHoveredSkill(null)}
                     >
                       <div className={`${isDark
-                          ? 'bg-gray-700/50 hover:bg-gray-600/70 border-gray-600'
-                          : 'bg-gray-50 hover:bg-gray-100 border-gray-200'
+                        ? 'bg-gray-700/50 hover:bg-gray-600/70 border-gray-600'
+                        : 'bg-gray-50 hover:bg-gray-100 border-gray-200'
                         } p-3 lg:p-4 rounded-xl border transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer relative overflow-hidden`}>
 
                         {/* Skill Progress Bar */}
@@ -229,9 +229,9 @@ const SkillsSection = () => {
                           <Badge
                             variant="secondary"
                             className={`text-xs px-2 py-0.5 ${skill.level >= 90 ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' :
-                                skill.level >= 80 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
-                                  skill.level >= 70 ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300' :
-                                    'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+                              skill.level >= 80 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                                skill.level >= 70 ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300' :
+                                  'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
                               }`}
                           >
                             {skill.level >= 90 ? 'Expert' :
