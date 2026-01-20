@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Calendar, MapPin, Sparkles, Server, Brain, Cloud, Database, Code2 } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Sparkles, Server, Brain, Cloud, Database, Code2, Zap } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 const Experience = () => {
@@ -20,26 +20,41 @@ const Experience = () => {
 
     const experiences = [
         {
+            title: "DataForgeAI",
+            role: "Builder / Engineer — Data Processing (AI)",
+            company: "DataForgeAI",
+            period: "2025 – Present",
+            location: "Remote",
+            description: "Developing an AI-powered dataset creation system that enables users to generate, refine, and export custom structured datasets through an interactive workflow, optimized for rapid dataset building and reuse.",
+            highlight: true,
+            icon: <Database className="w-5 h-5 text-primary" />,
+            subheading: "Built Under DataNestTX",
+            status: "In Development",
+            statusType: "dev"
+        },
+        {
             title: "CorpusAI",
-            role: "Lead Software Engineer (AI Systems)",
+            role: "Builder / Engineer — AI Systems",
             company: "CorpusAI",
             period: "2025 – Present",
             location: "Remote",
-            description: "Led the architecture and development of an AI-powered corpus intelligence system. Designed document ingestion pipelines, semantic search workflows, and retrieval-augmented generation (RAG) architecture. Integrated LLMs and vector databases to enable low-latency, context-aware data processing.",
+            description: "Developed an AI-powered corpus intelligence system that enables users to ingest documents, explore content semantically, and retrieve context-aware insights from their knowledge base.",
             highlight: true,
-            imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop", // AI/Brain abstract
-            icon: <Brain className="w-5 h-5 text-primary" />
+            icon: <Brain className="w-5 h-5 text-primary" />,
+            subheading: "Built Under DataNestTX",
+            status: "Beta Stage"
         },
         {
             title: "DataNestTX",
-            role: "Founding / Lead Engineer — AI Platform",
+            role: "Platform Builder — AI Data Platform",
             company: "DataNestTX",
-            period: "2024 – 2025",
+            period: "2025 – Present",
             location: "Remote",
-            description: "Independently designed and built a scalable data extraction and processing platform from the ground up. Owned end-to-end system architecture including backend services, APIs, databases, and cloud infrastructure, with a focus on performance, reliability, and production readiness.",
+            description: "Built the core AI data platform powering ingestion, processing, APIs, and cloud infrastructure. Designed end-to-end architecture for scalability, reliability, and production readiness.",
             highlight: true,
-            imageUrl: "https://images.unsplash.com/photo-1558494949-ef2bb6db8744?q=80&w=1000&auto=format&fit=crop", // Server/Data abstract
-            icon: <Server className="w-5 h-5 text-primary" />
+            icon: <Server className="w-5 h-5 text-primary" />,
+            status: "Core Platform",
+            statusType: "success"
         }
     ];
 
@@ -62,12 +77,12 @@ const Experience = () => {
                     <div ref={containerRef} className="max-w-5xl mx-auto relative px-4">
 
                         {/* Vertical Timeline Track (Background) */}
-                        <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 rounded-full opacity-30"></div>
+                        <div className="absolute left-9 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 rounded-full opacity-30"></div>
 
                         {/* Vertical Scroll Progress Bar (Foreground) */}
                         {/* Vertical Scroll Progress Bar (Foreground) */}
                         <motion.div
-                            className="absolute left-5 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-primary via-blue-500 to-cyan-400 -translate-x-1/2 rounded-full origin-top z-0"
+                            className="absolute left-9 md:left-1/2 top-0 w-0.5 bg-gradient-to-b from-primary via-blue-500 to-cyan-400 -translate-x-1/2 rounded-full origin-top z-0"
                             style={{ height: "100%", scaleY }}
                         />
 
@@ -118,6 +133,33 @@ const Experience = () => {
                                             <p className="text-muted-foreground mb-6 leading-relaxed text-base">
                                                 {exp.description}
                                             </p>
+
+                                            {/* Subheading & Status Footer */}
+                                            {(exp.subheading || exp.status) && (
+                                                <div className="pt-4 border-t border-border/30 flex items-center justify-between gap-4 flex-wrap">
+                                                    {exp.subheading ? (
+                                                        <div className="flex items-center gap-2 text-primary group/tool">
+                                                            <Zap className="w-3.5 h-3.5 fill-primary/20 animate-pulse shrink-0" />
+                                                            <span className="text-sm font-bold tracking-tight leading-tight">
+                                                                {exp.subheading}
+                                                            </span>
+                                                        </div>
+                                                    ) : <div />}
+
+                                                    {exp.status && (
+                                                        <div className="shrink-0 whitespace-nowrap">
+                                                            <span className={`text-[10px] font-extrabold uppercase tracking-wider flex items-center gap-1.5 ${exp.statusType === 'success' ? "text-emerald-500" :
+                                                                exp.statusType === 'dev' ? "text-rose-500" : "text-orange-500"
+                                                                }`}>
+                                                                <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${exp.statusType === 'success' ? "bg-emerald-500" :
+                                                                    exp.statusType === 'dev' ? "bg-rose-500" : "bg-orange-500"
+                                                                    }`} />
+                                                                {exp.status}
+                                                            </span>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            )}
 
                                             {/* Tech Stack */}
 

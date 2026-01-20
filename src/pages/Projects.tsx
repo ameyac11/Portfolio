@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -12,37 +12,21 @@ import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, C
 const Projects = () => {
     const [selectedFilter, setSelectedFilter] = useState('all');
     const [activeScreenshot, setActiveScreenshot] = useState<{ [key: number]: number }>({});
-    const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+    const [lightboxInfo, setLightboxInfo] = useState<{ projectIndex: number; imageIndex: number } | null>(null);
 
     // Monochrome/Neutral tag styles
     const tagStyles = "bg-secondary text-secondary-foreground border-border/50";
 
     const projects = [
         {
-            title: 'DataNesTX',
-            description: 'Unified AI Data Orchestration & Intelligence Platform. An AI-driven data orchestration platform designed to unify, manage, and optimize data flows across modern AI systems. Acts as a central intelligence layer connecting raw data sources, vector databases, LLMs, and downstream applications into a single, scalable pipeline.',
-            screenshots: [
-                '/DataNesTX_Logo_Dark_Frontend.png',
-                '/DataNesTX_Logo_Light_Frontend.png'
-            ],
-            tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'VectorDB', 'LLM'],
-            demoLink: 'https://datanestx.tech',
-            codeLink: '#',
-            category: 'AI/ML',
-            status: 'In Progress',
-            featured: true,
-            stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
-            highlights: ['Centralized Data Layer', 'RAG Pipeline', 'Model-Agnostic']
-        },
-        {
             title: 'CorpusAI',
-            description: 'Intelligent Context & Knowledge Management for LLMs. A context-intelligence platform built to solve managing large, dynamic, and reusable knowledge across LLM interactions. Features structured storage, retrieval, and lifecycle management of prompts, documents, embeddings, and conversational context with smart caching.',
+            description: 'AI-powered Corpus Intelligence & Retrieval-Augmented Generation (RAG) platform. CorpusAI enables users to ingest documents, manage reusable context, and perform semantic retrieval to generate accurate, context-aware responses across LLM interactions.',
             screenshots: [
                 '/CorpusAI_1.png',
                 '/DataNesTX_Logo_Dark_Frontend.png',
                 '/DataNesTX_Logo_Light_Frontend.png'
             ],
-            tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG'],
+            tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
             demoLink: 'https://corpusai.datanestx.tech',
             codeLink: '#',
             category: 'AI/ML',
@@ -53,52 +37,68 @@ const Projects = () => {
         },
         {
             title: 'DataForgeAI',
-            description: 'AI-First Data Processing & Transformation Engine. An AI-centric data processing engine that transforms raw, unstructured, or semi-structured data into AI-ready formats. Automates data cleaning, normalization, enrichment, and embedding generation, enabling faster deployment of machine learning and LLM-powered applications.',
+            description: 'AI-powered Dataset Engineering & Generation platform. DataForgeAI enables users to create structured datasets through conversational AI workflows with model selection and internet-assisted generation, as well as custom schema-based builders for manual and AI-assisted dataset creation and export.',
             screenshots: [
                 '/DataNesTX_Logo_Dark_Frontend.png',
                 '/DataNesTX_Logo_Light_Frontend.png'
             ],
-            tags: ['Python', 'Pytorch', 'FastAPI', 'MongoDB', 'VectorDB', 'AI'],
+            tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
             demoLink: 'https://datanestx.tech',
             codeLink: '#',
             category: 'AI/ML',
             status: 'In Progress',
             featured: true,
             stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
-            highlights: ['Automated Processing', 'Scalable', 'ML Integration']
+            highlights: ['Conversational Dataset Generation', 'Model Selection', 'Internet-assisted Generation', 'Custom Dataset Builder']
         },
         {
-            title: 'LiteNet: Custom CNN Model',
-            description: 'A comprehensive deep learning project featuring a custom Convolutional Neural Network architecture for advanced image classification. Includes comprehensive data preprocessing pipelines, model training optimization, thorough evaluation metrics, and production-ready deployment solutions.',
+            title: 'DataNestX',
+            description: 'A modular data and AI platform designed to unify intelligent systems for dataset engineering, corpus intelligence, and scalable AI workflows.',
+            screenshots: [
+                '/DataNesTX_Logo_Dark_Frontend.png',
+                '/DataNesTX_Logo_Light_Frontend.png'
+            ],
+            tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
+            demoLink: 'https://datanestx.tech',
+            codeLink: '#',
+            category: 'AI/ML',
+            status: 'In Progress',
+            featured: true,
+            stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
+            highlights: ['Modular Platform', 'Scalable Architecture', 'Unified AI Systems']
+        },
+        {
+            title: 'LiteNet',
+            description: 'Designed and implemented a custom Convolutional Neural Network (CNN) for image classification, featuring end-to-end data preprocessing, optimized training workflows, and rigorous evaluation pipelines.',
             screenshots: [
                 '/L_1.png',
                 '/L_2.png',
                 '/L_3.png',
                 '/L_4.png'
             ],
-            tags: ['Pytorch', 'Python', 'CNN'],
+            tags: ['Python', 'PyTorch', 'CNN', 'React'],
             demoLink: 'https://litenet.vercel.app',
             codeLink: '#',
             category: 'AI/ML',
             status: 'Completed',
             featured: false,
             stats: { stars: 45, contributors: 3, lastUpdate: '2024-08' },
-            highlights: ['Custom Architecture', 'High Accuracy', 'Scalable Solution']
+            highlights: ['Custom CNN Architecture', 'Optimized Training', 'Model Evaluation']
         },
         {
-            title: 'Portfolio Website',
-            description: 'A modern, responsive portfolio website showcasing professional skills, comprehensive project portfolio, and seamless contact integration. Built with cutting-edge technologies and featuring elegant animations, optimized performance, and exceptional user experience across all devices.',
+            title: 'Portfolio',
+            description: 'Designed and developed a personal portfolio showcasing AI systems, full-stack projects, and interactive visual experiences with a focus on clean, premium design.',
             screenshots: [
                 '/P_1.png'
             ],
-            tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Vite', 'TailwindCSS'],
+            tags: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
             demoLink: '#',
             codeLink: '#',
             category: 'Web Development',
             status: 'Completed',
             featured: false,
             stats: { stars: 28, contributors: 1, lastUpdate: '2024-08' },
-            highlights: ['Modern Design', 'Responsive', 'Fast Performance']
+            highlights: ['Responsive Design', 'Interactive UI', 'Performance Optimized']
         }
     ];
 
@@ -128,6 +128,33 @@ const Projects = () => {
             [projectIndex]: ((prev[projectIndex] || 0) - 1 + totalScreenshots) % totalScreenshots
         }));
     };
+
+    const nextLightboxImage = () => {
+        if (!lightboxInfo) return;
+        const project = filteredProjects[lightboxInfo.projectIndex];
+        const nextIndex = (lightboxInfo.imageIndex + 1) % project.screenshots.length;
+        setLightboxInfo({ ...lightboxInfo, imageIndex: nextIndex });
+    };
+
+    const prevLightboxImage = () => {
+        if (!lightboxInfo) return;
+        const project = filteredProjects[lightboxInfo.projectIndex];
+        const prevIndex = (lightboxInfo.imageIndex - 1 + project.screenshots.length) % project.screenshots.length;
+        setLightboxInfo({ ...lightboxInfo, imageIndex: prevIndex });
+    };
+
+    // Keyboard navigation for lightbox
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            if (!lightboxInfo) return;
+            if (e.key === 'ArrowLeft') prevLightboxImage();
+            if (e.key === 'ArrowRight') nextLightboxImage();
+            if (e.key === 'Escape') setLightboxInfo(null);
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, [lightboxInfo]);
 
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col">
@@ -198,7 +225,7 @@ const Projects = () => {
                                                     src={src}
                                                     alt={`${project.title} - view ${i + 1}`}
                                                     className="w-full h-full object-contain cursor-pointer hover:opacity-95 transition-opacity bg-black/50"
-                                                    onClick={() => setLightboxImage(src)}
+                                                    onClick={() => setLightboxInfo({ projectIndex: index, imageIndex: i })}
                                                 />
                                             </div>
                                         ))}
@@ -207,16 +234,16 @@ const Projects = () => {
                                     {/* Navigation */}
                                     {project.screenshots.length > 1 && (
                                         <>
-                                            <div className="absolute inset-0 flex items-center justify-between p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                                            <div className="absolute inset-0 flex items-center justify-between p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); prevScreenshot(index, project.screenshots.length); }}
-                                                    className="p-2 rounded-full bg-background/80 text-foreground hover:bg-background shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
+                                                    className="p-2 rounded-full bg-white/90 text-black hover:bg-white shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
                                                 >
                                                     <ChevronLeft className="w-4 h-4" />
                                                 </button>
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); nextScreenshot(index, project.screenshots.length); }}
-                                                    className="p-2 rounded-full bg-background/80 text-foreground hover:bg-background shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
+                                                    className="p-2 rounded-full bg-white/90 text-black hover:bg-white shadow-sm backdrop-blur-sm transition-colors pointer-events-auto"
                                                 >
                                                     <ChevronRight className="w-4 h-4" />
                                                 </button>
@@ -296,12 +323,7 @@ const Projects = () => {
                                                 Live Demo
                                             </a>
                                         </Button>
-                                        <Button asChild variant="outline" className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base border-border hover:bg-secondary/50 transition-transform active:scale-95">
-                                            <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                                                <Github className="w-4 sm:w-5 h-4 sm:h-5" />
-                                                View Code
-                                            </a>
-                                        </Button>
+
                                     </div>
                                 </div>
                             </div>
@@ -325,48 +347,86 @@ const Projects = () => {
             </main>
 
             {/* Lightbox Modal Window */}
-            {lightboxImage && (
-                <div
-                    className="fixed inset-0 z-[60] bg-zinc-950/90 backdrop-blur-md flex items-center justify-center p-4 md:p-12 animate-in fade-in zoom-in-95 duration-300"
-                    onClick={() => setLightboxImage(null)}
-                >
-                    {/* Modal Window Container */}
+            {lightboxInfo && (() => {
+                const project = filteredProjects[lightboxInfo.projectIndex];
+                const currentImage = project.screenshots[lightboxInfo.imageIndex];
+                const hasMultipleImages = project.screenshots.length > 1;
+
+                return (
                     <div
-                        className="relative bg-zinc-900 rounded-2xl shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] border border-zinc-800 max-w-5xl w-full flex flex-col overflow-hidden max-h-[85vh]"
-                        onClick={(e) => e.stopPropagation()}
+                        className="fixed inset-0 z-[10000] bg-zinc-950/90 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in zoom-in-95 duration-300"
+                        onClick={() => setLightboxInfo(null)}
                     >
-                        {/* Header Bar */}
-                        <div className="flex items-center justify-between px-8 py-5 border-b border-zinc-800 bg-zinc-900/50 flex-shrink-0">
-                            <div className="flex flex-col gap-0.5">
-                                <h3 className="text-lg font-bold text-zinc-100 tracking-tight">Project Preview</h3>
-                                <p className="text-xs text-zinc-500 font-medium uppercase tracking-widest px-1">Visual Intelligence</p>
-                            </div>
+                        {/* Image Container - Shrinks to fit Image */}
+                        <div
+                            className="relative max-w-[85vw] md:max-w-[75vw] max-h-[85vh] inline-flex flex-col items-center"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Mobile Navigation Arrows - Physically Above Image */}
+                            {hasMultipleImages && (
+                                <div className="md:hidden w-full flex justify-center items-center gap-6 mb-4 z-[10002]">
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); prevLightboxImage(); }}
+                                        className="p-3 rounded-full bg-white text-black hover:bg-white/90 border border-transparent shadow-xl transition-all duration-300 active:scale-95"
+                                        aria-label="Previous image"
+                                    >
+                                        <ChevronLeft className="w-6 h-6" />
+                                    </button>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); nextLightboxImage(); }}
+                                        className="p-3 rounded-full bg-white text-black hover:bg-white/90 border border-transparent shadow-xl transition-all duration-300 active:scale-95"
+                                        aria-label="Next image"
+                                    >
+                                        <ChevronRight className="w-6 h-6" />
+                                    </button>
+                                </div>
+                            )}
+
+                            <img
+                                src={currentImage}
+                                alt={`${project.title} - view ${lightboxInfo.imageIndex + 1}`}
+                                className="max-w-full max-h-[70vh] md:max-h-[85vh] object-contain rounded-xl border border-white/10 shadow-2xl"
+                            />
+
+                            {/* Desktop Navigation Arrows - Close to Image */}
+                            {hasMultipleImages && (
+                                <>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); prevLightboxImage(); }}
+                                        className="hidden md:flex absolute -left-20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white text-black hover:bg-white/90 border border-transparent shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-[10002]"
+                                        aria-label="Previous image"
+                                    >
+                                        <ChevronLeft className="w-6 h-6" />
+                                    </button>
+                                    <button
+                                        onClick={(e) => { e.stopPropagation(); nextLightboxImage(); }}
+                                        className="hidden md:flex absolute -right-20 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white text-black hover:bg-white/90 border border-transparent shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 z-[10002]"
+                                        aria-label="Next image"
+                                    >
+                                        <ChevronRight className="w-6 h-6" />
+                                    </button>
+                                </>
+                            )}
+
+                            {/* Close Button - Anchored to Image Corner */}
                             <button
-                                className="p-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-all duration-300 border border-zinc-700/50 hover:border-zinc-600 shadow-sm group"
-                                onClick={() => setLightboxImage(null)}
+                                className="absolute -top-4 -right-4 p-2 rounded-full bg-zinc-900/50 hover:bg-zinc-900 text-white hover:text-white border border-white/20 hover:border-white/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95 z-[10002]"
+                                onClick={() => setLightboxInfo(null)}
                                 aria-label="Close preview"
                             >
-                                <X className="w-5 h-5 group-hover:scale-110 group-active:scale-95 transition-transform" />
+                                <X className="w-5 h-5" />
                             </button>
-                        </div>
 
-                        {/* Image Container */}
-                        <div className="flex-1 flex items-center justify-center p-6 md:p-10 bg-black/20 overflow-auto min-h-0">
-                            <img
-                                src={lightboxImage}
-                                alt="Project Full View"
-                                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl ring-1 ring-white/5"
-                            />
-                        </div>
-
-                        {/* Footer / Status Bar (Subtle detail) */}
-                        <div className="px-8 py-3 bg-zinc-900 border-t border-zinc-800 flex justify-between items-center text-[10px] text-zinc-600 font-mono tracking-tighter uppercase">
-                            <span>Image Optimized</span>
-                            <span>Scale: Fit</span>
+                            {/* Image Counter - Below Image */}
+                            {hasMultipleImages && (
+                                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-sm font-medium text-zinc-300 shadow-lg backdrop-blur-md">
+                                    {lightboxInfo.imageIndex + 1} / {project.screenshots.length}
+                                </div>
+                            )}
                         </div>
                     </div>
-                </div>
-            )}
+                );
+            })()}
 
             <Footer />
         </div>

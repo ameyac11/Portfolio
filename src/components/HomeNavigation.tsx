@@ -136,22 +136,31 @@ const HomeNavigation = () => {
                                 {/* Timeline Line */}
                                 <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-border"></div>
 
-                                {/* Item 1 */}
+                                {/* Item 1 - DataForgeAI */}
                                 <div className="flex gap-4 relative z-10">
-                                    <div className="w-4 h-4 rounded-full bg-green-500 border-2 border-background mt-1 shadow-sm shrink-0"></div>
+                                    <div className="w-4 h-4 rounded-full bg-emerald-500 border-2 border-background mt-1 shadow-[0_0_10px_rgba(16,185,129,0.3)] shrink-0"></div>
                                     <div>
-                                        <p className="font-bold text-sm">Lead Software Engineer</p>
+                                        <p className="font-bold text-sm">Builder / Engineer</p>
+                                        <p className="text-xs font-medium text-primary">DataForgeAI</p>
+                                        <p className="text-[10px] text-muted-foreground mt-0.5">2025 – Present</p>
+                                    </div>
+                                </div>
+                                {/* Item 2 - CorpusAI */}
+                                <div className="flex gap-4 relative z-10 opacity-60">
+                                    <div className="w-4 h-4 rounded-full bg-blue-500 border-2 border-background mt-1 shadow-[0_0_10px_rgba(59,130,246,0.3)] shrink-0"></div>
+                                    <div>
+                                        <p className="font-medium text-sm text-foreground/80">Builder / Engineer</p>
                                         <p className="text-xs font-medium text-primary">CorpusAI</p>
                                         <p className="text-[10px] text-muted-foreground mt-0.5">2025 – Present</p>
                                     </div>
                                 </div>
-                                {/* Item 2 */}
-                                <div className="flex gap-4 relative z-10">
+                                {/* Item 3 - DataNestTX */}
+                                <div className="flex gap-4 relative z-10 opacity-30">
                                     <div className="w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-background mt-1 shrink-0"></div>
                                     <div>
-                                        <p className="font-medium text-sm text-foreground/80">Lead Architect</p>
+                                        <p className="font-medium text-sm text-foreground/70">Platform Builder</p>
                                         <p className="text-xs font-medium text-muted-foreground">DataNestTX</p>
-                                        <p className="text-[10px] text-muted-foreground mt-0.5">2024 – 2025</p>
+                                        <p className="text-[10px] text-muted-foreground mt-0.5">2025 – Present</p>
                                     </div>
                                 </div>
                             </div>

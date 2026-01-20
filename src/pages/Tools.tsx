@@ -76,6 +76,7 @@ const Tools = () => {
             category: 'Cloud & Deployment',
             categoryId: 'cloud',
             items: [
+                { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#336791]" />, level: 85, description: 'Relational database management' },
                 { name: 'Docker', icon: <SiDocker className="text-[#2496ED]" />, level: 85, description: 'Containerization & Orchestration' },
                 { name: 'Redis', icon: <SiRedis className="text-[#DC382D]" />, level: 80, description: 'In-memory data structure store' },
                 { name: 'Qdrant', icon: <Database className="text-[#D91656]" />, level: 82, description: 'Vector Database for AI' }

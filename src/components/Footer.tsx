@@ -41,8 +41,10 @@ const Footer = () => {
                 <p className="text-sm text-muted-foreground">AI & ML Developer</p>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed max-w-sm text-base">
-              Passionate about creating intelligent solutions with cutting-edge AI and Machine Learning technologies. Let's build the future together!
+            <p className="text-base leading-relaxed max-w-sm">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-foreground/70 font-medium italic">
+                Crafting AI, inspired by the cosmos.
+              </span>
             </p>
             <div className="flex gap-4 pt-2">
               {socialLinks.map((social, index) => (

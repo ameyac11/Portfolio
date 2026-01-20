@@ -212,99 +212,64 @@ const Navbar = () => {
 
                 {/* Menu Panel */}
                 <motion.div
-                  initial={{ x: "100%" }}
-                  animate={{ x: 0 }}
-                  exit={{ x: "100%" }}
-                  transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                  className="fixed inset-y-0 right-0 z-[2147483647] w-full max-w-sm bg-background/90 backdrop-blur-3xl border-l border-white/10 shadow-2xl lg:hidden flex flex-col"
+                  initial={{ opacity: 0, scale: 0.9, y: -20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                  transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                  className="fixed top-24 left-4 right-4 z-[2147483647] max-w-sm mx-auto bg-white/90 dark:bg-zinc-950/90 backdrop-blur-2xl border border-zinc-200/50 dark:border-white/10 rounded-[2rem] shadow-2xl overflow-hidden flex flex-col"
                 >
 
+                  {/* Header/Brand */}
+                  <div className="flex items-center justify-between px-6 py-5 border-b border-zinc-200/50 dark:border-white/5">
+                    <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">Navigation</span>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                      <span className="text-[10px] text-zinc-500 font-medium">ONLINE</span>
+                    </div>
+                  </div>
 
-                  {/* Header */}
-                  <div className="relative z-10 flex items-center justify-between px-8 py-6 border-b border-white/5">
-                    <Link to="/" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 group">
-                      <div className="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors duration-300">
-                        <Code2 className="w-6 h-6 text-cyan-500" />
-                      </div>
-                      <span className="font-bold text-xl tracking-tight text-foreground">Portfolio</span>
-                    </Link>
+                  {/* Navigation Gird */}
+                  <div className="p-3 grid grid-cols-2 gap-2">
+                    {navLinks.map((link, i) => {
+                      const isActive = location.pathname === link.path;
+                      return (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={`flex flex-col items-center justify-center gap-2 p-4 rounded-2xl transition-all duration-300 border ${isActive
+                            ? "bg-cyan-500/10 border-cyan-500/20 text-cyan-600 dark:text-cyan-400"
+                            : "bg-zinc-50/50 dark:bg-white/5 border-transparent text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-white/10 hover:text-zinc-900 dark:hover:text-zinc-100"
+                            }`}
+                        >
+                          {React.cloneElement(link.icon as React.ReactElement, { className: "w-6 h-6 mb-1" })}
+                          <span className="font-medium text-xs tracking-wide">{link.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+
+                  {/* Footer Stats / Toggles */}
+                  <div className="px-3 pb-3">
                     <button
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10"
+                      onClick={(e) => toggleTheme(e)}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-50/50 dark:bg-white/5 hover:bg-zinc-100 dark:hover:bg-white/10 border border-transparent hover:border-zinc-200/50 dark:hover:border-white/5 transition-all group"
                     >
-                      <X className="w-6 h-6" />
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-full transition-colors ${theme === 'dark' ? 'bg-cyan-500/10 text-cyan-400' : 'bg-yellow-500/10 text-yellow-600'}`}>
+                          {theme === 'light' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                        </div>
+                        <div className="flex flex-col items-start gap-0.5">
+                          <span className="text-xs font-medium text-zinc-600 dark:text-zinc-300">Appearance</span>
+                          <span className="text-[10px] text-zinc-500 uppercase tracking-wider">{theme === 'light' ? 'Light Mode' : 'Dark Mode'}</span>
+                        </div>
+                      </div>
+                      <div className="h-6 px-2 rounded-md bg-zinc-200/50 dark:bg-white/5 flex items-center justify-center">
+                        <span className="text-[10px] font-mono text-zinc-500">{time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                      </div>
                     </button>
                   </div>
 
-                  {/* Navigation */}
-                  <div className="relative z-10 flex-1 overflow-y-auto py-10 px-6">
-                    <nav className="flex flex-col gap-4">
-                      {navLinks.map((link, i) => {
-                        const isActive = location.pathname === link.path;
-                        return (
-                          <motion.div
-                            key={link.name}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.1 + i * 0.05 }}
-                          >
-                            <Link
-                              to={link.path}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className={`group relative flex items-center justify-between p-5 rounded-2xl transition-all duration-300 border border-transparent ${isActive
-                                ? "bg-cyan-500/10 border-cyan-500/20"
-                                : "hover:bg-white/5 hover:border-white/10"
-                                }`}
-                            >
-                              <div className="flex items-center gap-5">
-                                <span className={`p-2.5 rounded-xl transition-colors duration-300 ${isActive ? "text-cyan-500 bg-cyan-500/10" : "bg-white/5 text-muted-foreground group-hover:bg-white/10 group-hover:text-foreground"
-                                  }`}>
-                                  {React.cloneElement(link.icon as React.ReactElement, { className: "w-5 h-5" })}
-                                </span>
-                                <span className={`text-lg font-medium transition-colors ${isActive ? "text-cyan-500" : "text-muted-foreground group-hover:text-foreground"}`}>
-                                  {link.name}
-                                </span>
-                              </div>
-                              {isActive && (
-                                <motion.div
-                                  layoutId="activeIndicator"
-                                  className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]"
-                                />
-                              )}
-                              {!isActive && <ChevronRight className="w-5 h-5 text-muted-foreground/50 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />}
-                            </Link>
-                          </motion.div>
-                        );
-                      })}
-                    </nav>
-                  </div>
-
-                  {/* Footer */}
-                  <div className="relative z-10 px-8 py-8 border-t border-white/5 bg-background/40 backdrop-blur-xl mt-auto">
-                    <div className="flex flex-col gap-5">
-                      {/* Theme Toggle */}
-                      <button
-                        onClick={(e) => toggleTheme(e)}
-                        className="flex items-center justify-between w-full p-5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 transition-all duration-300 group active:scale-[0.98]"
-                      >
-                        <span className="flex items-center gap-3 text-muted-foreground group-hover:text-foreground">
-                          {theme === 'light' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                          <span className="font-medium text-lg">{theme === 'light' ? 'Light' : 'Dark'} Mode</span>
-                        </span>
-                        <div className={`w-12 h-7 rounded-full p-1 transition-colors duration-300 ${theme === 'dark' ? 'bg-cyan-500' : 'bg-zinc-600'}`}>
-                          <div className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform duration-300 ${theme === 'dark' ? 'translate-x-5' : 'translate-x-0'}`} />
-                        </div>
-                      </button>
-
-                      {/* Time & Copyright */}
-                      <div className="flex items-center justify-between text-xs text-muted-foreground/60 px-2">
-                        <span>© 2026 Portfolio</span>
-                        <span className="font-mono tabular-nums bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
-                          {time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
                 </motion.div>
               </>
             )}
