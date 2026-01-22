@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, Github, Linkedin, Mail, ArrowUp, Code2, Sparkles, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -14,7 +15,7 @@ const Footer = () => {
     { name: 'About', href: '/about' },
     { name: 'Skills', href: '/tools' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Contact', href: 'mailto:ameyaccod171@gmail.com' }
+    { name: 'Contact', href: '/contact' }
   ];
 
   const socialLinks = [
@@ -71,13 +72,23 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {link.name}
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm flex items-center gap-2 group"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
