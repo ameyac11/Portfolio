@@ -11,7 +11,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         // Faster initial loading
         const timer = setInterval(() => {
             setProgress((prev) => {
-                const increment = Math.random() * 5;
+                const increment = Math.random() * 15;
                 const newProgress = prev + increment;
 
                 if (newProgress >= 100) {
