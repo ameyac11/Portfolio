@@ -29,7 +29,8 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     // Domain Restriction
-    if (window.location.hostname !== 'ameyac11.vercel.app') {
+    const allowedDomains = ['ameyac11.vercel.app', 'ameyac11.in', 'www.ameyac11.in'];
+    if (!allowedDomains.includes(window.location.hostname)) {
       toast({
         title: "Submission Restricted",
         description: "This contact form can only be used from the official portfolio website.",
