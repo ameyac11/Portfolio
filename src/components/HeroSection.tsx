@@ -71,7 +71,7 @@ const HeroSection = () => {
                         <a href="https://github.com/AmeyC171" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                             <Github className="w-6 h-6" />
                         </a>
-                        <a href="https://www.linkedin.com/in/ameya-chopade11" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                        <a href="https://www.linkedin.com/in/ameyac11" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                             <Linkedin className="w-6 h-6" />
                         </a>
                         <a href="mailto:ameyaccod171@gmail.com" className="hover:text-primary transition-colors">

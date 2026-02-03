@@ -127,7 +127,7 @@ const ContactSection = () => {
     {
       icon: <Linkedin size={24} />,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/ameya-chopade11",
+      url: "https://www.linkedin.com/in/ameyac11",
       color: "hover:text-blue-600"
     },
     {

@@ -9,6 +9,92 @@ import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, ChevronRight, X, LayoutList, Github } from 'lucide-react';
 
+const projects = [
+    {
+        title: 'CorpusAI',
+        description: 'AI-powered Corpus Intelligence & Retrieval-Augmented Generation (RAG) platform. CorpusAI enables users to ingest documents, manage reusable context, and perform semantic retrieval to generate accurate, context-aware responses across LLM interactions.',
+        screenshots: [
+            '/CorpusAI_1.png',
+            '/DataNesTX_Logo_Dark_Frontend.png',
+            '/DataNesTX_Logo_Light_Frontend.png'
+        ],
+        tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
+        demoLink: 'https://corpusai.datanestx.tech',
+        codeLink: '#',
+        category: 'AI/ML',
+        status: 'Completed',
+        featured: true,
+        stats: { stars: 65, contributors: 1, lastUpdate: '2026-01' },
+        highlights: ['Context Caching', 'Token Efficient', 'Multi-Agent Systems', 'RAG']
+    },
+    {
+        title: 'DataForgeAI',
+        description: 'AI-powered Dataset Engineering & Generation platform. DataForgeAI enables users to create structured datasets through conversational AI workflows with model selection and internet-assisted generation, as well as custom schema-based builders for manual and AI-assisted dataset creation and export.',
+        screenshots: [
+            '/DataNesTX_Logo_Dark_Frontend.png',
+            '/DataNesTX_Logo_Light_Frontend.png'
+        ],
+        tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
+        demoLink: 'https://datanestx.tech',
+        codeLink: '#',
+        category: 'AI/ML',
+        status: 'In Progress',
+        featured: true,
+        stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
+        highlights: ['Conversational Dataset Generation', 'Model Selection', 'Internet-assisted Generation', 'Custom Dataset Builder']
+    },
+    {
+        title: 'DataNestX',
+        description: 'A modular data and AI platform designed to unify intelligent systems for dataset engineering, corpus intelligence, and scalable AI workflows.',
+        screenshots: [
+            '/DataNesTX_Logo_Dark_Frontend.png',
+            '/DataNesTX_Logo_Light_Frontend.png'
+        ],
+        tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
+        demoLink: 'https://datanestx.tech',
+        codeLink: '#',
+        category: 'AI/ML',
+        status: 'In Progress',
+        featured: true,
+        stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
+        highlights: ['Modular Platform', 'Scalable Architecture', 'Unified AI Systems']
+    },
+    {
+        title: 'LiteNeTX',
+        description: 'Designed and implemented a custom Convolutional Neural Network (CNN) for image classification, featuring end-to-end data preprocessing, optimized training workflows, and rigorous evaluation pipelines.',
+        screenshots: [
+            '/L_1.png',
+            '/L_2.png',
+            '/L_3.png',
+            '/L_4.png'
+        ],
+        tags: ['Python', 'PyTorch', 'CNN', 'React'],
+        demoLink: 'https://litenetx.in',
+        codeLink: '#',
+        category: 'AI/ML',
+        status: 'Completed',
+        featured: false,
+        stats: { stars: 45, contributors: 3, lastUpdate: '2024-08' },
+        highlights: ['Custom CNN Architecture', 'Optimized Training', 'Model Evaluation']
+    },
+    {
+        title: 'Portfolio',
+        description: 'Designed and developed a personal portfolio showcasing AI systems, full-stack projects, and interactive visual experiences with a focus on clean, premium design.',
+        screenshots: [
+            '/P_1.png',
+            '/P_2.png'
+        ],
+        tags: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+        demoLink: '#',
+        codeLink: '#',
+        category: 'Web Development',
+        status: 'Completed',
+        featured: false,
+        stats: { stars: 28, contributors: 1, lastUpdate: '2024-08' },
+        highlights: ['Responsive Design', 'Interactive UI', 'Performance Optimized']
+    }
+];
+
 const Projects = () => {
     const [selectedFilter, setSelectedFilter] = useState('all');
     const [activeScreenshot, setActiveScreenshot] = useState<{ [key: number]: number }>({});
@@ -16,91 +102,6 @@ const Projects = () => {
 
     // Monochrome/Neutral tag styles
     const tagStyles = "bg-secondary text-secondary-foreground border-border/50";
-
-    const projects = [
-        {
-            title: 'CorpusAI',
-            description: 'AI-powered Corpus Intelligence & Retrieval-Augmented Generation (RAG) platform. CorpusAI enables users to ingest documents, manage reusable context, and perform semantic retrieval to generate accurate, context-aware responses across LLM interactions.',
-            screenshots: [
-                '/CorpusAI_1.png',
-                '/DataNesTX_Logo_Dark_Frontend.png',
-                '/DataNesTX_Logo_Light_Frontend.png'
-            ],
-            tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
-            demoLink: 'https://corpusai.datanestx.tech',
-            codeLink: '#',
-            category: 'AI/ML',
-            status: 'Completed',
-            featured: true,
-            stats: { stars: 65, contributors: 1, lastUpdate: '2026-01' },
-            highlights: ['Context Caching', 'Token Efficient', 'Multi-Agent Systems', 'RAG']
-        },
-        {
-            title: 'DataForgeAI',
-            description: 'AI-powered Dataset Engineering & Generation platform. DataForgeAI enables users to create structured datasets through conversational AI workflows with model selection and internet-assisted generation, as well as custom schema-based builders for manual and AI-assisted dataset creation and export.',
-            screenshots: [
-                '/DataNesTX_Logo_Dark_Frontend.png',
-                '/DataNesTX_Logo_Light_Frontend.png'
-            ],
-            tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
-            demoLink: 'https://datanestx.tech',
-            codeLink: '#',
-            category: 'AI/ML',
-            status: 'In Progress',
-            featured: true,
-            stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
-            highlights: ['Conversational Dataset Generation', 'Model Selection', 'Internet-assisted Generation', 'Custom Dataset Builder']
-        },
-        {
-            title: 'DataNestX',
-            description: 'A modular data and AI platform designed to unify intelligent systems for dataset engineering, corpus intelligence, and scalable AI workflows.',
-            screenshots: [
-                '/DataNesTX_Logo_Dark_Frontend.png',
-                '/DataNesTX_Logo_Light_Frontend.png'
-            ],
-            tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
-            demoLink: 'https://datanestx.tech',
-            codeLink: '#',
-            category: 'AI/ML',
-            status: 'In Progress',
-            featured: true,
-            stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
-            highlights: ['Modular Platform', 'Scalable Architecture', 'Unified AI Systems']
-        },
-        {
-            title: 'LiteNet',
-            description: 'Designed and implemented a custom Convolutional Neural Network (CNN) for image classification, featuring end-to-end data preprocessing, optimized training workflows, and rigorous evaluation pipelines.',
-            screenshots: [
-                '/L_1.png',
-                '/L_2.png',
-                '/L_3.png',
-                '/L_4.png'
-            ],
-            tags: ['Python', 'PyTorch', 'CNN', 'React'],
-            demoLink: 'https://litenet.vercel.app',
-            codeLink: '#',
-            category: 'AI/ML',
-            status: 'Completed',
-            featured: false,
-            stats: { stars: 45, contributors: 3, lastUpdate: '2024-08' },
-            highlights: ['Custom CNN Architecture', 'Optimized Training', 'Model Evaluation']
-        },
-        {
-            title: 'Portfolio',
-            description: 'Designed and developed a personal portfolio showcasing AI systems, full-stack projects, and interactive visual experiences with a focus on clean, premium design.',
-            screenshots: [
-                '/P_1.png'
-            ],
-            tags: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-            demoLink: '#',
-            codeLink: '#',
-            category: 'Web Development',
-            status: 'Completed',
-            featured: false,
-            stats: { stars: 28, contributors: 1, lastUpdate: '2024-08' },
-            highlights: ['Responsive Design', 'Interactive UI', 'Performance Optimized']
-        }
-    ];
 
     const filters = [
         { id: 'all', name: 'All Projects', count: projects.length },
@@ -155,6 +156,21 @@ const Projects = () => {
         window.addEventListener('keydown', handleKeyPress);
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [lightboxInfo]);
+
+    // Auto-transition images every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveScreenshot(prev => {
+                const newState = { ...prev };
+                projects.forEach((project, index) => {
+                    newState[index] = ((newState[index] || 0) + 1) % project.screenshots.length;
+                });
+                return newState;
+            });
+        }, 1750);
+
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className="min-h-screen bg-background text-foreground flex flex-col">
