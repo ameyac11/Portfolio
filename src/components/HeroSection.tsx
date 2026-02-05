@@ -39,7 +39,7 @@ const HeroSection = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 px-4 md:px-0 leading-relaxed"
                     >
-                        A passionate Full Stack Developer crafting beautiful, responsive, and user-friendly web experiences with modern technologies.
+                        An AI/ML-focused engineering student building intelligent solutions in machine learning and deep learning with cutting-edge technologies.
                     </motion.p>
 
                     <motion.div
