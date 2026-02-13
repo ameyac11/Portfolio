@@ -1,103 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Ameya Chopade</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>A</text></svg>" />
-    <meta name="description" content="Professional portfolio of Ameya Chopade, an AI & ML developer specializing in modern machine learning applications" />
-    <meta name="author" content="Ameya Chopade" />
 
-    <meta property="og:title" content="Ameya Chopade" />
-    <meta property="og:description" content="Professional portfolio of Ameya Chopade, an AI & ML developer specializing in modern machine learning applications" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/opengraph-image.png" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Ameya Chopade</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/Porfolio_logo_tab.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/Porfolio_logo_tab.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Porfolio_logo_tab.png" />
+  <meta name="description"
+    content="Professional portfolio of Ameya Chopade, an AI & ML developer specializing in modern machine learning applications" />
+  <meta name="author" content="Ameya Chopade" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@ameya_chopade" />
-    <meta name="twitter:image" content="/opengraph-image.png" />
-    
-    <!-- Theme initialization script - CRITICAL: This must run before any other scripts -->
-    <script>
-      // IIFE to avoid polluting global scope
-      (function() {
-        try {
-          console.log('Theme initialization script running...');
-          
-          // First remove any existing theme classes
-          document.documentElement.classList.remove('light', 'dark');
-          
-          // Check for saved theme preference
-          const savedTheme = localStorage.getItem('theme');
-          console.log('Saved theme from localStorage:', savedTheme);
-          
-          // Check system preference
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          console.log('System prefers dark mode:', prefersDark);
-          
-          // Force theme application
-          let themeToApply;
-          
-          if (savedTheme === 'light') {
-            themeToApply = 'light';
-            console.log('Using light theme from localStorage');
-          } else if (savedTheme === 'dark') {
-            themeToApply = 'dark';
-            console.log('Using dark theme from localStorage');
-          } else if (prefersDark) {
-            themeToApply = 'dark';
-            localStorage.setItem('theme', 'dark');
-            console.log('Using dark theme from system preference');
-          } else {
-            themeToApply = 'light'; // Default to light theme
-            localStorage.setItem('theme', 'light');
-            console.log('Using default light theme');
-          }
-          
-          // Apply the theme
-          document.documentElement.classList.add(themeToApply);
-          
+  <meta property="og:title" content="Ameya Chopade" />
+  <meta property="og:description"
+    content="Professional portfolio of Ameya Chopade, an AI & ML developer specializing in modern machine learning applications" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/opengraph-image.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ameya_chopade" />
+  <meta name="twitter:image" content="/opengraph-image.png" />
+
+  <!-- Theme initialization script - CRITICAL: This must run before any other scripts -->
+  <script>
+    // IIFE to avoid polluting global scope
+    (function () {
+      try {
+        console.log('Theme initialization script running...');
+
+        // First remove any existing theme classes
+        document.documentElement.classList.remove('light', 'dark');
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        console.log('Saved theme from localStorage:', savedTheme);
+
+        // Check system preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        console.log('System prefers dark mode:', prefersDark);
+
+        // Force theme application
+        let themeToApply;
+
+        if (savedTheme === 'light') {
+          themeToApply = 'light';
+          console.log('Using light theme from localStorage');
+        } else if (savedTheme === 'dark') {
+          themeToApply = 'dark';
+          console.log('Using dark theme from localStorage');
+        } else if (prefersDark) {
+          themeToApply = 'dark';
+          localStorage.setItem('theme', 'dark');
+          console.log('Using dark theme from system preference');
+        } else {
+          themeToApply = 'light'; // Default to light theme
+          localStorage.setItem('theme', 'light');
+          console.log('Using default light theme');
+        }
+
+        // Apply the theme
+        document.documentElement.classList.add(themeToApply);
+
+        // Update meta theme color
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+          metaThemeColor.setAttribute('content', themeToApply === 'dark' ? '#0f172a' : '#ffffff');
+        }
+
+        console.log('Theme applied successfully:', themeToApply);
+
+        // Create a global function that can be called from anywhere to toggle theme
+        window.toggleTheme = function () {
+          const html = document.documentElement;
+          const isDark = html.classList.contains('dark');
+
+          // Toggle theme
+          html.classList.remove('dark', 'light');
+          html.classList.add(isDark ? 'light' : 'dark');
+
+          // Save preference
+          localStorage.setItem('theme', isDark ? 'light' : 'dark');
+
           // Update meta theme color
           const metaThemeColor = document.querySelector('meta[name="theme-color"]');
           if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', themeToApply === 'dark' ? '#0f172a' : '#ffffff');
+            metaThemeColor.setAttribute('content', isDark ? '#ffffff' : '#0f172a');
           }
-          
-          console.log('Theme applied successfully:', themeToApply);
-          
-          // Create a global function that can be called from anywhere to toggle theme
-          window.toggleTheme = function() {
-            const html = document.documentElement;
-            const isDark = html.classList.contains('dark');
-            
-            // Toggle theme
-            html.classList.remove('dark', 'light');
-            html.classList.add(isDark ? 'light' : 'dark');
-            
-            // Save preference
-            localStorage.setItem('theme', isDark ? 'light' : 'dark');
-            
-            // Update meta theme color
-            const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-            if (metaThemeColor) {
-              metaThemeColor.setAttribute('content', isDark ? '#ffffff' : '#0f172a');
-            }
-            
-            console.log('Theme toggled to:', isDark ? 'light' : 'dark');
-            return !isDark;
-          };
-        } catch (error) {
-          console.error('Error in theme initialization:', error);
-        }
-      })();
-    </script>
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+          console.log('Theme toggled to:', isDark ? 'light' : 'dark');
+          return !isDark;
+        };
+      } catch (error) {
+        console.error('Error in theme initialization:', error);
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

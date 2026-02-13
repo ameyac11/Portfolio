@@ -114,8 +114,17 @@ const Navbar = () => {
           {/* --- LEFT: LOGO --- */}
           <div className="flex items-center gap-2 z-[10001]">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-9 md:w-10 h-9 md:h-10 bg-black dark:bg-white rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20 transition-transform duration-300 hover:scale-105">
-                <Code2 className="w-5 md:w-6 h-5 md:h-6 text-cyan-500" />
+              <div className="w-9 md:w-10 h-9 md:h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-105 overflow-hidden bg-white dark:bg-[#1e1e24] border-4 border-gray-200 dark:border-gray-700">
+                <img
+                  src="/Porfolio_logo_black.png"
+                  alt="Logo"
+                  className="w-full h-full object-contain dark:hidden"
+                />
+                <img
+                  src="/Porfolio_logo_white.png"
+                  alt="Logo"
+                  className="w-full h-full object-contain hidden dark:block"
+                />
               </div>
               <div className="hidden lg:flex items-center gap-1 bg-[#1e1e24] dark:bg-white backdrop-blur-md border border-white/10 dark:border-black/10 px-4 py-2 rounded-xl shadow-lg dark:shadow-md transition-all duration-500 ease-in-out hover:shadow-xl dark:hover:shadow-lg">
                 <span className="font-bold text-cyan-500 transition-colors duration-500">A</span>

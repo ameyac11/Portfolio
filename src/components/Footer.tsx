@@ -34,8 +34,17 @@ const Footer = () => {
           {/* Brand Section - Col Span 5 */}
           <div className="md:col-span-5 space-y-8">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm">
-                <Code2 className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg bg-white dark:bg-[#1e1e24] border-4 border-gray-200 dark:border-gray-700">
+                <img
+                  src="/Porfolio_logo_white.png"
+                  alt="Logo"
+                  className="w-full h-full object-contain hidden dark:block"
+                />
+                <img
+                  src="/Porfolio_logo_black.png"
+                  alt="Logo"
+                  className="w-full h-full object-contain dark:hidden"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-bold tracking-tight">Ameya Chopade</h3>

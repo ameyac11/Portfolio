@@ -64,7 +64,11 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
                     {/* Main Circle */}
                     <div className="h-24 w-24 rounded-full bg-white border border-gray-100 shadow-2xl flex items-center justify-center relative overflow-hidden">
                         <div className="absolute inset-0 bg-black/5 animate-pulse" />
-                        <span className="text-3xl font-bold tracking-tighter z-10 font-heading text-black">AC</span>
+                        <img
+                            src="/Porfolio_logo_black.png"
+                            alt="Logo"
+                            className="w-20 h-20 object-contain z-10"
+                        />
                     </div>
                 </div>
 
