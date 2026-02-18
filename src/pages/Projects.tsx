@@ -66,10 +66,11 @@ const projects = [
             '/L_1.png',
             '/L_2.png',
             '/L_3.png',
-            '/L_4.png'
+            '/L_4.png',
+            '/L_5.png'
         ],
         tags: ['Python', 'PyTorch', 'CNN', 'React'],
-        demoLink: 'https://litenetx.in',
+        demoLink: 'https://www.litenetx.in',
         codeLink: '#',
         category: 'AI/ML',
         status: 'Completed',
