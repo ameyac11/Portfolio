@@ -31,6 +31,8 @@ const projects = [
         title: 'DataForgeAI',
         description: 'AI-powered Dataset Engineering & Generation platform. DataForgeAI enables users to create structured datasets through conversational AI workflows with model selection and internet-assisted generation, as well as custom schema-based builders for manual and AI-assisted dataset creation and export.',
         screenshots: [
+            '/D_1.png',
+            '/D_2.png',
             '/DataNesTX_Logo_Dark_Frontend.png',
             '/DataNesTX_Logo_Light_Frontend.png'
         ],
