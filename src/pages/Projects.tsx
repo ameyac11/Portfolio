@@ -19,7 +19,7 @@ const projects = [
             '/DataNesTX_Logo_Light_Frontend.png'
         ],
         tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
-        demoLink: 'https://corpusai.datanestx.tech',
+        demoLink: 'https://drive.google.com/file/d/1sinJJUI4ERdRFNriyIDwmQwCkWR7wG-K/view?usp=sharing',
         codeLink: '#',
         category: 'AI/ML',
         status: 'Completed',
@@ -37,7 +37,7 @@ const projects = [
             '/DataNesTX_Logo_Light_Frontend.png'
         ],
         tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
-        demoLink: 'https://datanestx.tech',
+        demoLink: 'https://drive.google.com/file/d/1OtPPlJhO3wfiNb6Vo_7IEtpdBAg533A5/view?usp=sharing',
         codeLink: '#',
         category: 'AI/ML',
         status: 'In Progress',
