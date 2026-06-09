@@ -123,9 +123,9 @@ const FoundationSection = ({ progress, index, total }: any) => {
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full max-w-6xl px-6 md:px-0">
                 <motion.div style={{ x: xLeft }} className="text-left md:text-right space-y-2">
                     <h2 className="text-6xl md:text-8xl font-bold font-heading text-primary leading-none">
-                        9.90
+                        9.52
                     </h2>
-                    <p className="text-xl md:text-2xl font-mono uppercase tracking-widest text-muted-foreground">SGPA</p>
+                    <p className="text-xl md:text-2xl font-mono uppercase tracking-widest text-muted-foreground">CGPA</p>
                 </motion.div>
 
                 <motion.div style={{ x: xRight }} className="relative pl-6 md:pl-8 border-l-2 border-primary/50">
@@ -422,7 +422,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
     const lineHeight = useTransform(animProgress, [0, 0.7], ["0%", "100%"]);
 
     const timelineData = [
-        { year: '2023-27', title: 'B.Tech in CSE (AI & ML)', sub: 'Pimpri Chinchwad University', grade: '9.90 SGPA' },
+        { year: '2023-27', title: 'B.Tech in CSE (AI & ML)', sub: 'Pimpri Chinchwad University', grade: '9.52 CGPA' },
         { year: '2021-23', title: 'Higher Secondary', sub: 'Novel Junior College', grade: '82.67%' },
         { year: '2010-21', title: 'Secondary School', sub: 'Kamalnayan Bajaj School', grade: '75%' },
     ];
