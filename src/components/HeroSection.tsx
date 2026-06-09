@@ -7,7 +7,7 @@ import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 const HeroSection = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-24 md:pt-32 pb-16">
-            {/* Abstract Background Elements - REMOVED for solid background */}
+            {/* Background abstract elements removed. */}
 
 
             <div className="container px-4 mx-auto relative z-10">
@@ -82,7 +82,7 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
+            {/* Scroll indicator animation. */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

@@ -15,24 +15,24 @@ import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
-// Create a client
+// Initialize query client.
 const queryClient = new QueryClient();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize theme on app load
+  // App theme initialization.
   useEffect(() => {
-    // Get the theme from localStorage
+    // Retrieve stored theme.
     const savedTheme = localStorage.getItem('theme') || 'light';
 
-    // Apply the theme class to the document
+    // Apply document theme.
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(savedTheme);
 
     console.log('App initialized with theme:', savedTheme);
 
-    // Listen for theme changes
+    // Theme change listener.
     const handleThemeChange = () => {
       const isDarkMode = document.documentElement.classList.contains('dark');
       console.log('App detected theme change:', isDarkMode ? 'dark' : 'light');
@@ -64,7 +64,7 @@ const App = () => {
               <Route path="/tools" element={<Tools />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Routes go here. */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>

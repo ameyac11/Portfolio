@@ -7,41 +7,41 @@ type ThemeContextType = {
   toggleTheme: () => void;
 };
 
-// Create context with default values
+// Create context with defaults
 const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // Initialize with light theme by default
+  // Set default light theme
   const [theme, setTheme] = useState<Theme>('light');
 
-  // Function to toggle theme
+  // Toggle current theme
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     
-    // Apply theme to document
+    // Apply theme changes
     applyTheme(newTheme);
     
-    // Save to localStorage
+    // Save theme preference
     localStorage.setItem('theme', newTheme);
     
     console.log('Theme toggled to:', newTheme);
   };
 
-  // Function to apply theme to document
+  // Apply the document theme
   const applyTheme = (theme: Theme) => {
     const root = document.documentElement;
     
-    // Remove both classes
+    // Remove old classes
     root.classList.remove('light', 'dark');
     
-    // Add the new theme class
+    // Add new class
     root.classList.add(theme);
     
-    // Update meta theme-color for mobile browsers
+    // Update mobile meta color
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     if (metaThemeColor) {
       metaThemeColor.setAttribute(
@@ -51,13 +51,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // Initialize theme on mount
+  // Initialize theme properly
   useEffect(() => {
-    // Get theme from localStorage or use system preference
+    // Get saved or system theme
     const storedTheme = localStorage.getItem('theme') as Theme | null;
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Determine which theme to use
+    // Decide initial theme
     let initialTheme: Theme;
     if (storedTheme) {
       initialTheme = storedTheme;
@@ -66,10 +66,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem('theme', initialTheme);
     }
     
-    // Update state
+    // Update component state
     setTheme(initialTheme);
     
-    // Apply theme to document
+    // Apply visual theme
     applyTheme(initialTheme);
     
     console.log('Theme initialized to:', initialTheme);

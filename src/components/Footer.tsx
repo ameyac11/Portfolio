@@ -26,12 +26,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-background text-foreground pt-20 pb-8 relative overflow-hidden border-t border-border">
-      {/* Soft Glow */}
+      {/* Soft glow effect. */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
 
       <div className="container px-4 mx-auto">
         <div className="grid md:grid-cols-12 gap-12 mb-16">
-          {/* Brand Section - Col Span 5 */}
+          {/* Brand section column. */}
           <div className="md:col-span-5 space-y-8">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg bg-white dark:bg-[#1e1e24] border-4 border-gray-200 dark:border-gray-700">
@@ -72,7 +72,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links - Col Span 3 */}
+          {/* Quick links column. */}
           <div className="md:col-span-3 md:pl-8">
             <h4 className="text-lg font-semibold mb-6 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-primary" />
@@ -103,7 +103,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info - Col Span 4 */}
+          {/* Contact info column. */}
           <div className="md:col-span-4">
             <h4 className="text-lg font-semibold mb-6 flex items-center gap-2">
               <Mail className="w-4 h-4 text-primary" />
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom bar section. */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
             &copy; {currentYear} Ameya Chopade. All rights reserved.

@@ -111,7 +111,7 @@ const Projects = () => {
     const [activeScreenshot, setActiveScreenshot] = useState<{ [key: number]: number }>({});
     const [lightboxInfo, setLightboxInfo] = useState<{ projectIndex: number; imageIndex: number } | null>(null);
 
-    // Monochrome/Neutral tag styles
+    // Neutral tag styles.
     const tagStyles = "bg-secondary text-secondary-foreground border-border/50";
 
     const filters = [
@@ -155,7 +155,7 @@ const Projects = () => {
         setLightboxInfo({ ...lightboxInfo, imageIndex: prevIndex });
     };
 
-    // Keyboard navigation for lightbox
+    // Lightbox keyboard navigation.
     useEffect(() => {
         const handleKeyPress = (e: KeyboardEvent) => {
             if (!lightboxInfo) return;
@@ -168,7 +168,7 @@ const Projects = () => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [lightboxInfo]);
 
-    // Auto-transition images every 3 seconds
+    // Auto-transition images.
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveScreenshot(prev => {
@@ -188,7 +188,7 @@ const Projects = () => {
             <Navbar />
 
             <main className="flex-grow pt-24 md:pt-32 pb-24 container px-4 md:px-8 mx-auto max-w-6xl">
-                {/* Minimal Header */}
+                {/* Minimal header. */}
                 <div className="flex flex-col items-center mb-16 md:mb-24 text-center space-y-4 md:space-y-6 px-4">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs md:text-sm font-medium">
                         <LayoutList className="w-3.5 md:w-4 h-3.5 md:h-4" />
@@ -199,7 +199,7 @@ const Projects = () => {
                     </h1>
                 </div>
 
-                {/* Filters */}
+                {/* Filters. */}
                 <div className="flex justify-center mb-12 md:mb-16 px-4">
                     <div className="flex flex-wrap justify-center gap-2 p-1.5 md:p-1 bg-secondary/30 rounded-2xl md:rounded-lg border border-border/30">
                         {filters.map((filter) => (
@@ -225,7 +225,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                {/* Zig-Zag List View */}
+                {/* Zig-zag list view. */}
                 <div className="space-y-24 md:space-y-32">
                     {filteredProjects.map((project, index) => {
                         const currentScreenshot = activeScreenshot[index] || 0;
@@ -240,7 +240,7 @@ const Projects = () => {
                                 )}
                                 style={{ animationDelay: `${index * 0.1}s` }}
                             >
-                                {/* IMAGE COLUMN (5 cols equivalent -> ~45%) */}
+                                {/* Image column section. */}
                                 <div className="w-full lg:w-[45%] relative rounded-3xl overflow-hidden bg-secondary/10 border border-border shadow-sm group-hover:shadow-md transition-all duration-500 aspect-[4/3] md:aspect-video lg:aspect-[4/3] max-h-[350px] md:max-h-none">
                                     <div
                                         className="flex h-full transition-transform duration-500 ease-in-out"
@@ -258,7 +258,7 @@ const Projects = () => {
                                         ))}
                                     </div>
 
-                                    {/* Navigation */}
+                                    {/* Navigation. */}
                                     {project.screenshots.length > 1 && (
                                         <>
                                             <div className="absolute inset-0 flex items-center justify-between p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
@@ -275,7 +275,7 @@ const Projects = () => {
                                                     <ChevronRight className="w-4 h-4" />
                                                 </button>
                                             </div>
-                                            {/* Dots */}
+                                            {/* Dots. */}
                                             <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 pointer-events-none">
                                                 {project.screenshots.map((_, i) => (
                                                     <div
@@ -291,9 +291,9 @@ const Projects = () => {
                                     )}
                                 </div>
 
-                                {/* CONTENT COLUMN (7 cols equivalent -> ~55%) */}
+                                {/* Content column section. */}
                                 <div className="w-full lg:w-[55%] flex flex-col space-y-6">
-                                    {/* Header */}
+                                    {/* Header. */}
                                     <div className="flex flex-col gap-4">
                                         <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
                                             {project.title}
@@ -313,12 +313,12 @@ const Projects = () => {
                                         </div>
                                     </div>
 
-                                    {/* Description */}
+                                    {/* Description. */}
                                     <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg">
                                         {project.description}
                                     </p>
 
-                                    {/* Highlights */}
+                                    {/* Highlights. */}
                                     <div className="flex flex-wrap gap-2">
                                         {project.highlights.map((highlight, i) => (
                                             <Badge key={i} variant="outline" className="border-border text-xs font-medium text-muted-foreground py-1.5 px-3">
@@ -327,7 +327,7 @@ const Projects = () => {
                                         ))}
                                     </div>
 
-                                    {/* Tech Stack */}
+                                    {/* Tech stack. */}
                                     <div className="flex flex-wrap gap-2 pt-2">
                                         {project.tags.map((tag, i) => (
                                             <span
@@ -342,7 +342,7 @@ const Projects = () => {
                                         ))}
                                     </div>
 
-                                    {/* Actions */}
+                                    {/* Actions. */}
                                     <div className="pt-6 mt-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                                         <Button asChild className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base bg-foreground text-background hover:bg-foreground/90 font-medium transition-transform active:scale-95 shadow-lg">
                                             <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
@@ -358,7 +358,7 @@ const Projects = () => {
                     })}
                 </div>
 
-                {/* Bottom CTA */}
+                {/* Bottom call to action. */}
                 <div className="mt-20 text-center border-t border-border pt-16">
                     <div className="inline-flex flex-col items-center gap-4 max-w-2xl mx-auto">
                         <TrendingUp className="w-8 h-8 text-foreground mb-1" />
@@ -373,7 +373,7 @@ const Projects = () => {
                 </div>
             </main>
 
-            {/* Lightbox Modal Window */}
+            {/* Lightbox modal. */}
             {lightboxInfo && (() => {
                 const project = filteredProjects[lightboxInfo.projectIndex];
                 const currentImage = project.screenshots[lightboxInfo.imageIndex];
@@ -384,12 +384,12 @@ const Projects = () => {
                         className="fixed inset-0 z-[10000] bg-zinc-950/90 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in zoom-in-95 duration-300"
                         onClick={() => setLightboxInfo(null)}
                     >
-                        {/* Image Container - Shrinks to fit Image */}
+                        {/* Image container. */}
                         <div
                             className="relative max-w-[85vw] md:max-w-[75vw] max-h-[85vh] inline-flex flex-col items-center"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            {/* Mobile Navigation Arrows - Physically Above Image */}
+                            {/* Mobile navigation arrows. */}
                             {hasMultipleImages && (
                                 <div className="md:hidden w-full flex justify-center items-center gap-6 mb-4 z-[10002]">
                                     <button
@@ -415,7 +415,7 @@ const Projects = () => {
                                 className="max-w-full max-h-[70vh] md:max-h-[85vh] object-contain rounded-xl border border-white/10 shadow-2xl"
                             />
 
-                            {/* Desktop Navigation Arrows - Close to Image */}
+                            {/* Desktop navigation arrows. */}
                             {hasMultipleImages && (
                                 <>
                                     <button
@@ -435,7 +435,7 @@ const Projects = () => {
                                 </>
                             )}
 
-                            {/* Close Button - Anchored to Image Corner */}
+                            {/* Close button. */}
                             <button
                                 className="absolute -top-4 -right-4 p-2 rounded-full bg-zinc-900/50 hover:bg-zinc-900 text-white hover:text-white border border-white/20 hover:border-white/50 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-110 active:scale-95 z-[10002]"
                                 onClick={() => setLightboxInfo(null)}
@@ -444,7 +444,7 @@ const Projects = () => {
                                 <X className="w-5 h-5" />
                             </button>
 
-                            {/* Image Counter - Below Image */}
+                            {/* Image counter. */}
                             {hasMultipleImages && (
                                 <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-zinc-900/80 border border-white/10 text-sm font-medium text-zinc-300 shadow-lg backdrop-blur-md">
                                     {lightboxInfo.imageIndex + 1} / {project.screenshots.length}

@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 const HomeNavigation = () => {
     return (
         <section className="py-24 bg-background relative overflow-hidden">
-            {/* Background Gradients */}
+            {/* Background gradients. */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[10%] left-[5%] w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50"></div>
                 <div className="absolute bottom-[10%] right-[5%] w-96 h-96 bg-purple-500/5 rounded-full blur-3xl opacity-50"></div>
@@ -22,7 +22,7 @@ const HomeNavigation = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 auto-rows-min">
 
-                    {/* 1. ABOUT CARD - Left Top - (Span 5) */}
+                    {/* About card. */}
                     <Link to="/about" className="md:col-span-5 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
@@ -41,9 +41,9 @@ const HomeNavigation = () => {
                                 </p>
                             </div>
 
-                            {/* Abstract Visual - Image placeholder style */}
+                            {/* Profile visual area. */}
                             <div className="mt-auto h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-4 flex items-center justify-center relative overflow-hidden">
-                                {/* Mock profile visual */}
+                                {/* Mock profile placeholder. */}
                                 <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/20 to-transparent"></div>
                                 <div className="relative z-10 text-center">
                                     <div className="w-20 h-20 mx-auto bg-gray-300 dark:bg-gray-700 rounded-full mb-3 border-4 border-background flex items-center justify-center">
@@ -57,7 +57,7 @@ const HomeNavigation = () => {
                         </motion.div>
                     </Link>
 
-                    {/* 2. SKILLS CARD - Right Top - (Span 7) */}
+                    {/* Skills card. */}
                     <Link to="/tools" className="md:col-span-7 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
@@ -74,16 +74,16 @@ const HomeNavigation = () => {
                                     <ArrowUpRight className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                                 </div>
 
-                                {/* Orbit Visual */}
+                                {/* Orbit visual. */}
                                 <div className="flex-1 min-h-[200px] flex items-center justify-center relative mt-4">
                                     <div className="absolute w-[120%] h-[120%] bg-gradient-to-r from-primary/5 to-purple-500/5 blur-3xl rounded-full"></div>
 
-                                    {/* Central Node */}
+                                    {/* Central node. */}
                                     <div className="w-16 h-16 bg-background rounded-full shadow-lg border border-border flex items-center justify-center z-20 relative">
                                         <Code2 className="w-8 h-8 text-primary" />
                                     </div>
 
-                                    {/* Orbiting Nodes (Static for layout, could be animated) */}
+                                    {/* Orbiting nodes. */}
                                     <div className="absolute w-full max-w-sm h-full flex items-center justify-between pointer-events-none">
                                         <motion.div
                                             animate={{ y: [0, -10, 0] }}
@@ -121,7 +121,7 @@ const HomeNavigation = () => {
                         </motion.div>
                     </Link>
 
-                    {/* 3. EXPERIENCE - Left Bottom - (Span 5) */}
+                    {/* Experience card. */}
                     <Link to="/experience" className="md:col-span-5 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
@@ -133,10 +133,10 @@ const HomeNavigation = () => {
                             </div>
 
                             <div className="space-y-6 relative">
-                                {/* Timeline Line */}
+                                {/* Timeline line. */}
                                 <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-border"></div>
 
-                                {/* Item 1 - DataForgeAI */}
+                                {/* DataForgeAI entry. */}
                                 <div className="flex gap-4 relative z-10">
                                     <div className="w-4 h-4 rounded-full bg-emerald-500 border-2 border-background mt-1 shadow-[0_0_10px_rgba(16,185,129,0.3)] shrink-0"></div>
                                     <div>
@@ -145,7 +145,7 @@ const HomeNavigation = () => {
                                         <p className="text-[10px] text-muted-foreground mt-0.5">2025 – Present</p>
                                     </div>
                                 </div>
-                                {/* Item 2 - CorpusAI */}
+                                {/* CorpusAI entry. */}
                                 <div className="flex gap-4 relative z-10 opacity-60">
                                     <div className="w-4 h-4 rounded-full bg-blue-500 border-2 border-background mt-1 shadow-[0_0_10px_rgba(59,130,246,0.3)] shrink-0"></div>
                                     <div>
@@ -154,7 +154,7 @@ const HomeNavigation = () => {
                                         <p className="text-[10px] text-muted-foreground mt-0.5">2025 – Present</p>
                                     </div>
                                 </div>
-                                {/* Item 3 - DataNestTX */}
+                                {/* DataNestTX entry. */}
                                 <div className="flex gap-4 relative z-10 opacity-30">
                                     <div className="w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-background mt-1 shrink-0"></div>
                                     <div>
@@ -167,7 +167,7 @@ const HomeNavigation = () => {
                         </motion.div>
                     </Link>
 
-                    {/* 4. PROJECTS - Right Bottom - (Span 7) */}
+                    {/* Projects card. */}
                     <Link to="/projects" className="md:col-span-7 group h-full">
                         <motion.div
                             whileHover={{ y: -5 }}
@@ -182,7 +182,7 @@ const HomeNavigation = () => {
                             </div>
 
                             <div className="flex-1 bg-secondary/50 rounded-2xl p-4 flex gap-4 overflow-hidden relative">
-                                {/* Project 1 - DataNesTX */}
+                                {/* DataNesTX project card. */}
                                 <div className="w-1/2 bg-background rounded-xl p-4 shadow-sm border border-border/50 flex flex-col gap-2 transform group-hover:-translate-y-2 transition-transform duration-500">
                                     <div className="h-20 bg-blue-500/10 rounded-lg w-full mb-2 flex items-center justify-center">
                                         <Database className="w-8 h-8 text-blue-500" />
@@ -197,7 +197,7 @@ const HomeNavigation = () => {
                                     </div>
                                 </div>
 
-                                {/* Project 2 - CorpusAI */}
+                                {/* CorpusAI project card. */}
                                 <div className="w-1/2 bg-background rounded-xl p-4 shadow-sm border border-border/50 flex flex-col gap-2 transform group-hover:-translate-y-4 transition-transform duration-500 delay-75">
                                     <div className="h-20 bg-emerald-500/10 rounded-lg w-full mb-2 flex items-center justify-center">
                                         <Brain className="w-8 h-8 text-emerald-500" />

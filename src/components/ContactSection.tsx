@@ -28,7 +28,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // Domain Restriction
+    // Check domain restriction.
     const allowedDomains = ['ameyac11.vercel.app', 'ameyac11.in', 'www.ameyac11.in'];
     if (!allowedDomains.includes(window.location.hostname)) {
       toast({
@@ -140,14 +140,14 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding bg-background relative overflow-hidden">
-      {/* Background Elements - Subtler/Neutral */}
+      {/* Neutral background elements. */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-secondary/20 rounded-full blur-3xl opacity-50"></div>
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-secondary/10 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="container relative z-10">
-        {/* Section Header */}
+        {/* Header section. */}
         <div className="flex flex-col items-center mb-16 fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border backdrop-blur-sm mb-4">
             <div className="w-2 h-2 bg-primary rounded-full pulse-animation"></div>
@@ -161,7 +161,7 @@ const ContactSection = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
+          {/* Contact info. */}
           <div className="fade-in stagger-3">
             <div className="mb-8">
               <h3 className="text-3xl font-bold font-heading mb-4">Let's Start a Conversation</h3>
@@ -171,7 +171,7 @@ const ContactSection = () => {
               </p>
             </div>
 
-            {/* Contact Methods */}
+            {/* Contact methods. */}
             <div className="grid sm:grid-cols-2 gap-4 mb-8">
               {contactMethods.map((method, index) => (
                 <Card
@@ -199,7 +199,7 @@ const ContactSection = () => {
               ))}
             </div>
 
-            {/* Social Links */}
+            {/* Social links. */}
             <div>
               <h4 className="font-semibold mb-4 flex items-center gap-2">
                 <MessageCircle className="w-5 h-5 text-primary" />
@@ -221,7 +221,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Quick Stats */}
+            {/* Quick stats. */}
             <div className="mt-8 p-6 rounded-2xl bg-secondary/30 border border-border/50">
               <div className="flex items-center gap-3 mb-3">
                 <Zap className="w-6 h-6 text-primary" />
@@ -233,7 +233,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact form. */}
           <div className="fade-in stagger-4">
             <Card className="border border-border/50 shadow-xl bg-card/50 backdrop-blur-sm">
               <CardContent className="p-8">
@@ -245,7 +245,7 @@ const ContactSection = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Web3Forms Access Key is handled in handleSubmit */}
+                  {/* Web3Forms API key. */}
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -361,7 +361,7 @@ const ContactSection = () => {
                   </Button>
                 </form>
 
-                {/* Form Footer Removed */}
+                {/* Form footer removed. */}
               </CardContent>
             </Card>
           </div>

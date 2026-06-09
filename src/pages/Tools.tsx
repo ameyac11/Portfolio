@@ -217,8 +217,7 @@ const Tools = () => {
                                                 </p>
                                             </div>
 
-                                            {/* Hover Detail Card (Floating) - Optional if mouse interaction is preferred */}
-                                            {/* This space intentionally left clean for modern look */}
+
                                         </div>
                                     ))}
                                 </div>

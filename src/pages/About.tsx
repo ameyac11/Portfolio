@@ -26,7 +26,7 @@ const About = () => {
         return value;
     });
 
-    // Total sections = 8
+    // Total sections count.
     const TOTAL_SECTIONS = 8;
 
     return (
@@ -61,7 +61,7 @@ const About = () => {
     );
 };
 
-// --- HELPER HOOKS ---
+// Helper hooks for sections.
 const useSectionTransform = (progress: any, index: number, total: number) => {
     const step = 1 / total;
     const start = index * step;
@@ -71,7 +71,7 @@ const useSectionTransform = (progress: any, index: number, total: number) => {
     return { opacity, pointerEvents, start, end };
 };
 
-// --- 0. INTRO SECTION ---
+// Section zero: Intro.
 const IntroSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents } = useSectionTransform(progress, index, total);
     const scale = useTransform(progress, [0, 0.1], [1, 1.2]);
@@ -109,7 +109,7 @@ const IntroSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 1. FOUNDATION SECTION ---
+// Section one: Foundation.
 const FoundationSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents, start } = useSectionTransform(progress, index, total);
     const xLeft = useTransform(progress, [start, start + 0.05], [-50, 0]);
@@ -141,17 +141,17 @@ const FoundationSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 2. SPARK SECTION ---
+// Section two: Spark.
 const SparkSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents } = useSectionTransform(progress, index, total);
 
-    // Neural Constellation visual - non-circular/organic
+    // Organic neural visual.
     return (
         <motion.div
             style={{ opacity, pointerEvents }}
             className="absolute inset-0 flex flex-col items-center justify-center"
         >
-            {/* Background Stars */}
+            {/* Stars background. */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
                 {[...Array(15)].map((_, i) => (
                     <motion.div
@@ -170,10 +170,10 @@ const SparkSection = ({ progress, index, total }: any) => {
             </div>
 
             <div className="relative z-10 flex flex-col items-center">
-                {/* Asymmetric Neural Web Mesh */}
+                {/* Asymmetric web mesh. */}
                 <div className="relative mb-16 w-full max-w-lg h-64 flex items-center justify-center">
                     <svg className="absolute inset-0 w-full h-full text-primary/20" viewBox="0 0 400 200">
-                        {/* Connecting Lines */}
+                        {/* Connecting lines. */}
                         <motion.path
                             d="M 200,100 L 120,60 L 100,140 L 200,100 L 280,60 L 300,140 L 200,100"
                             fill="none"
@@ -194,7 +194,7 @@ const SparkSection = ({ progress, index, total }: any) => {
                         />
                     </svg>
 
-                    {/* Nodes */}
+                    {/* Network nodes. */}
                     <div className="absolute inset-0">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background border border-primary/50 p-4 rounded-xl shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)] z-10">
                             <Brain className="w-12 h-12 text-primary" />
@@ -244,7 +244,7 @@ const SparkSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 3. BUILD SECTION ---
+// Section three: Build.
 const BuildSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents, start, end } = useSectionTransform(progress, index, total);
     const rotateX = useTransform(progress, [start, end], [20, 0]);
@@ -290,7 +290,7 @@ const BuildSection = ({ progress, index, total }: any) => {
                                 <span className="text-purple-400">await</span> <span className="text-blue-400">System</span>.<span className="text-yellow-300">launch</span>(<span className="text-green-400">"DataNestTX"</span>);
                             </div>
                             <div className="pl-4 text-zinc-600">
-                                // Secure Authentication flow active
+                                // Secure auth active.
                             </div>
                             <div className="pt-2 text-green-500">
                                 &gt; Build Success_
@@ -303,7 +303,7 @@ const BuildSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 4. FOCUS SECTION: WHAT I DO ---
+// Section four: Focus.
 const FocusSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents } = useSectionTransform(progress, index, total);
 
@@ -320,11 +320,11 @@ const FocusSection = ({ progress, index, total }: any) => {
                     </p>
                 </div>
 
-                {/* Grid Layout - Compact on Mobile */}
+                {/* Compact grid layout. */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8 w-full">
-                    {/* Card 1 */}
+                    {/* First card. */}
                     <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
-                        {/* Gradient Blob Effect */}
+                        {/* Gradient blob effect. */}
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-blue-500/20" />
 
                         <CardContent className="p-5 md:p-8 relative z-10 flex md:flex-col items-center md:items-start gap-4 md:gap-0 h-full">
@@ -343,7 +343,7 @@ const FocusSection = ({ progress, index, total }: any) => {
                         </CardContent>
                     </Card>
 
-                    {/* Card 2 */}
+                    {/* Second card. */}
                     <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-green-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-green-500/20" />
 
@@ -363,7 +363,7 @@ const FocusSection = ({ progress, index, total }: any) => {
                         </CardContent>
                     </Card>
 
-                    {/* Card 3 */}
+                    {/* Third card. */}
                     <Card className="bg-card/50 dark:bg-zinc-900/50 border-border/50 shadow-xl backdrop-blur-md transition-all duration-500 hover:shadow-2xl hover:border-primary/20 hover:-translate-y-2 group overflow-hidden relative">
                         <div className="absolute -top-20 -right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl transition-all duration-500 group-hover:bg-purple-500/20" />
 
@@ -388,7 +388,7 @@ const FocusSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 5. EDUCATION TITLE SECTION ---
+// Section five: Education title.
 const EducationTitleSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents, start, end } = useSectionTransform(progress, index, total);
     const scale = useTransform(progress, [start, end], [1.2, 0.9]);
@@ -411,14 +411,14 @@ const EducationTitleSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 6. TIMELINE SECTION ---
+// Section six: Timeline.
 const TimelineSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents, start, end } = useSectionTransform(progress, index, total);
 
-    // Animation Progress: 0 to 1 over the duration of the section
+    // Animation section progress.
     const animProgress = useTransform(progress, [start, end - 0.05], [0, 1]);
 
-    // Line height grows from 0% to 100%
+    // Line height grows.
     const lineHeight = useTransform(animProgress, [0, 0.7], ["0%", "100%"]);
 
     const timelineData = [
@@ -433,9 +433,9 @@ const TimelineSection = ({ progress, index, total }: any) => {
             className="absolute inset-0 flex items-center justify-center"
         >
             <div className="max-w-2xl w-full px-4">
-                {/* Timeline with explicit Silver Vertical Line */}
+                {/* Silver vertical timeline. */}
                 <div className="relative pl-6 md:pl-8 ml-2 md:ml-4 space-y-8 md:space-y-12">
-                    {/* Animated Vertical Line */}
+                    {/* Animated vertical line. */}
                     <div className="absolute left-0 top-2 bottom-2 w-0.5 bg-zinc-200 dark:bg-zinc-800">
                         <motion.div
                             style={{ height: lineHeight }}
@@ -444,7 +444,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
                     </div>
 
                     {timelineData.map((item, i) => {
-                        // Staggered Item Animation
+                        // Stagger item animation.
                         const itemStart = i * 0.2;
                         const itemEnd = itemStart + 0.3;
                         const itemOpacity = useTransform(animProgress, [itemStart, itemEnd], [0, 1]);
@@ -456,7 +456,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
                                 style={{ opacity: itemOpacity, y: itemY }}
                                 className="relative"
                             >
-                                {/* Dot aligned with the border line */}
+                                {/* Dot aligned correctly. */}
                                 <span className="absolute -left-[33px] md:-left-[41px] top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-background border-2 border-primary z-10 shadow-[0_0_10px_rgba(var(--primary-rgb),0.3)]">
                                     <motion.span
                                         initial={{ scale: 0 }}
@@ -481,7 +481,7 @@ const TimelineSection = ({ progress, index, total }: any) => {
     );
 };
 
-// --- 7. OUTRO SECTION ---
+// Section seven: Outro.
 const OutroSection = ({ progress, index, total }: any) => {
     const { opacity, pointerEvents } = useSectionTransform(progress, index, total);
 
