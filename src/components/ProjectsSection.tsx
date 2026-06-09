@@ -58,7 +58,7 @@ const ProjectsSection = () => {
       demoLink: 'https://corpusai.datanestx.tech',
       codeLink: '#',
       category: 'AI/ML',
-      status: 'In Progress',
+      status: 'Completed',
       featured: true,
       stats: { stars: 65, contributors: 1, lastUpdate: '2026-01' },
       highlights: ['Context Caching', 'Token Efficient', 'Multi-Agent Systems', 'RAG']
@@ -66,12 +66,12 @@ const ProjectsSection = () => {
     {
       title: 'DataForgeAI',
       description: 'AI-First Data Processing & Transformation Engine. An AI-centric data processing engine that transforms raw, unstructured, or semi-structured data into AI-ready formats. Automates data cleaning, normalization, enrichment, and embedding generation, enabling faster deployment of machine learning and LLM-powered applications.',
-      image: '/DataNesTX_Logo_Dark_Frontend.png',
+      image: '/DataForgeAI_1.png',
       tags: ['Python', 'Pytorch', 'FastAPI', 'MongoDB', 'VectorDB', 'AI'],
       demoLink: 'https://datanestx.tech',
       codeLink: '#',
       category: 'AI/ML',
-      status: 'In Progress',
+      status: 'Completed',
       featured: true,
       stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
       highlights: ['Automated Processing', 'Scalable', 'ML Integration']

@@ -121,7 +121,7 @@ const ContactSection = () => {
     {
       icon: <Github size={24} />,
       name: "GitHub",
-      url: "https://github.com/AmeyC171",
+      url: "https://github.com",
       color: "hover:text-foreground"
     },
     {

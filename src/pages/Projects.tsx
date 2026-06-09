@@ -15,8 +15,12 @@ const projects = [
         description: 'AI-powered Corpus Intelligence & Retrieval-Augmented Generation (RAG) platform. CorpusAI enables users to ingest documents, manage reusable context, and perform semantic retrieval to generate accurate, context-aware responses across LLM interactions.',
         screenshots: [
             '/CorpusAI_1.png',
-            '/DataNesTX_Logo_Dark_Frontend.png',
-            '/DataNesTX_Logo_Light_Frontend.png'
+            '/CorpusAI_2.png',
+            '/CorpusAI_3.png',
+            '/CorpusAI_4.png',
+            '/CorpusAI_5.png',
+            '/CorpusAI_6.png',
+            '/CorpusAI_7.png'
         ],
         tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
         demoLink: 'https://drive.google.com/file/d/1sinJJUI4ERdRFNriyIDwmQwCkWR7wG-K/view?usp=sharing',
@@ -31,16 +35,20 @@ const projects = [
         title: 'DataForgeAI',
         description: 'AI-powered Dataset Engineering & Generation platform. DataForgeAI enables users to create structured datasets through conversational AI workflows with model selection and internet-assisted generation, as well as custom schema-based builders for manual and AI-assisted dataset creation and export.',
         screenshots: [
-            '/D_1.png',
-            '/D_2.png',
-            '/DataNesTX_Logo_Dark_Frontend.png',
-            '/DataNesTX_Logo_Light_Frontend.png'
+            '/DataForgeAI_1.png',
+            '/DataForgeAI_2.png',
+            '/DataForgeAI_3.png',
+            '/DataForgeAI_4.png',
+            '/DataForgeAI_5.png',
+            '/DataForgeAI_6.png',
+            '/DataForgeAI_7.png',
+            '/DataForgeAI_8.png'
         ],
         tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
         demoLink: 'https://drive.google.com/file/d/1OtPPlJhO3wfiNb6Vo_7IEtpdBAg533A5/view?usp=sharing',
         codeLink: '#',
         category: 'AI/ML',
-        status: 'In Progress',
+        status: 'Completed',
         featured: true,
         stats: { stars: 58, contributors: 1, lastUpdate: '2026-01' },
         highlights: ['Conversational Dataset Generation', 'Model Selection', 'Internet-assisted Generation', 'Custom Dataset Builder']

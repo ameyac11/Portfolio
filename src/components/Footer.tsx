@@ -19,7 +19,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github size={18} />, href: 'https://github.com/AmeyC171', label: 'GitHub' },
+    { icon: <Github size={18} />, href: 'https://github.com', label: 'GitHub' },
     { icon: <Linkedin size={18} />, href: 'https://www.linkedin.com/in/ameyac11', label: 'LinkedIn' },
     { icon: <Mail size={18} />, href: 'mailto:ameyaccod171@gmail.com', label: 'Email' }
   ];
