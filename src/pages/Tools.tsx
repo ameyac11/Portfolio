@@ -6,13 +6,14 @@ import { Badge } from '@/components/ui/badge';
 import {
     Code2, Brain, BarChart, Boxes,
     ChartBar, LineChart, Microscope, Binary, PieChart, Star,
-    TrendingUp, Sparkles, Zap, MessageSquare, GitBranch, Eye, Rocket, Cloud, Database
+    TrendingUp, Sparkles, Zap, MessageSquare, GitBranch, Eye, Rocket, Cloud, Database, Link, Server
 } from 'lucide-react';
 import {
     SiPython, SiCplusplus, SiPostgresql, SiMongodb, SiJavascript, SiHtml5, SiCss3,
     SiPytorch, SiTensorflow, SiKeras, SiNumpy, SiPandas, SiOpencv, SiScikitlearn, SiHuggingface,
     SiGithubcopilot, SiOpenai, SiAnthropic, SiGoogle,
-    SiJupyter, SiGithub, SiGooglecolab, SiKaggle, SiDocker, SiRedis
+    SiJupyter, SiGithub, SiGooglecolab, SiKaggle, SiDocker, SiRedis,
+    SiReact, SiFastapi
 } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
@@ -30,6 +31,8 @@ const Tools = () => {
                 { name: 'SQL', icon: <SiPostgresql className="text-[#336791]" />, level: 80, description: 'Database queries and optimization' },
                 { name: 'MongoDB', icon: <SiMongodb className="text-[#47A248]" />, level: 70, description: 'NoSQL database' },
                 { name: 'JavaScript', icon: <SiJavascript className="text-[#F7DF1E]" />, level: 70, description: 'ES6+ and modern frameworks' },
+                { name: 'React', icon: <SiReact className="text-[#61DAFB]" />, level: 85, description: 'Modern frontend development' },
+                { name: 'FastAPI', icon: <SiFastapi className="text-[#009688]" />, level: 90, description: 'High-performance API framework' },
                 { name: 'HTML', icon: <SiHtml5 className="text-[#E34F26]" />, level: 75, description: 'Semantic markup and modern HTML5' },
                 { name: 'CSS', icon: <SiCss3 className="text-[#1572B6]" />, level: 70, description: 'Styling and responsive design' }
             ]
@@ -57,6 +60,8 @@ const Tools = () => {
                 { name: 'Antigravity', icon: <Rocket className="text-orange-500" />, level: 95, description: 'Advanced Agentic AI Coding Assistant' },
                 { name: 'GitHub Copilot', icon: <SiGithubcopilot className="text-foreground" />, level: 90, description: 'AI pair programming' },
                 { name: 'ChatGPT', icon: <SiOpenai className="text-[#412991]" />, level: 92, description: 'AI-powered conversations and coding' },
+                { name: 'Azure OpenAI', icon: <Cloud className="text-[#0078D4]" />, level: 88, description: 'Enterprise AI deployments' },
+                { name: 'LangChain', icon: <Link className="text-foreground" />, level: 85, description: 'LLM application framework' },
                 { name: 'Perplexity', icon: <Microscope className="text-[#20B2AA]" />, level: 85, description: 'AI-powered research and search' }
             ]
         },
@@ -79,6 +84,7 @@ const Tools = () => {
                 { name: 'PostgreSQL', icon: <SiPostgresql className="text-[#336791]" />, level: 85, description: 'Relational database management' },
                 { name: 'Docker', icon: <SiDocker className="text-[#2496ED]" />, level: 85, description: 'Containerization & Orchestration' },
                 { name: 'Redis', icon: <SiRedis className="text-[#DC382D]" />, level: 80, description: 'In-memory data structure store' },
+                { name: 'REST APIs', icon: <Server className="text-gray-500" />, level: 90, description: 'API design and integration' },
                 { name: 'Qdrant', icon: <Database className="text-[#D91656]" />, level: 82, description: 'Vector Database for AI' }
             ]
         },

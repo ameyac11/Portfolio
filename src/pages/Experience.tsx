@@ -25,12 +25,12 @@ const Experience = () => {
             company: "DataForgeAI",
             period: "2025 – Present",
             location: "Remote",
-            description: "Developing an AI-powered dataset creation system that enables users to generate, refine, and export custom structured datasets through an interactive workflow, optimized for rapid dataset building and reuse.",
+            description: "Developed an AI-powered dataset creation system that enables users to generate, refine, and export custom structured datasets through an interactive workflow, optimized for rapid dataset building and reuse.",
             highlight: true,
             icon: <Database className="w-5 h-5 text-primary" />,
             subheading: "Built Under DataNestTX",
-            status: "In Development",
-            statusType: "dev"
+            status: "Live & Active",
+            statusType: "success"
         },
         {
             title: "CorpusAI",
@@ -42,7 +42,8 @@ const Experience = () => {
             highlight: true,
             icon: <Brain className="w-5 h-5 text-primary" />,
             subheading: "Built Under DataNestTX",
-            status: "Beta Stage"
+            status: "Live & Active",
+            statusType: "success"
         },
         {
             title: "DataNestTX",
