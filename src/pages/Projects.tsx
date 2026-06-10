@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, ChevronRight, X, LayoutList, Github } from 'lucide-react';
+import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, ChevronRight, X, LayoutList, Github, Play } from 'lucide-react';
 
 const projects = [
     {
@@ -23,7 +23,8 @@ const projects = [
             '/CorpusAI_7.png'
         ],
         tags: ['Python', 'FastAPI', 'PostgreSQL', 'VectorDB', 'LLM', 'RAG', 'Redis', 'React', 'Docker'],
-        demoLink: 'https://drive.google.com/file/d/1sinJJUI4ERdRFNriyIDwmQwCkWR7wG-K/view?usp=sharing',
+        liveLink: '#',
+        videoLink: 'https://youtu.be/XfuICVTkITg',
         codeLink: '#',
         category: 'AI/ML',
         status: 'Completed',
@@ -45,7 +46,8 @@ const projects = [
             '/DataForgeAI_8.png'
         ],
         tags: ['React', 'FastAPI', 'PostgreSQL', 'Redis', 'LLM', 'Docker'],
-        demoLink: 'https://drive.google.com/file/d/1OtPPlJhO3wfiNb6Vo_7IEtpdBAg533A5/view?usp=sharing',
+        liveLink: '#',
+        videoLink: 'https://youtu.be/XfuICVTkITg',
         codeLink: '#',
         category: 'AI/ML',
         status: 'Completed',
@@ -61,7 +63,8 @@ const projects = [
             '/DataNesTX_Logo_Light_Frontend.png'
         ],
         tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
-        demoLink: 'https://datanestx.tech',
+        liveLink: 'https://datanestx.tech',
+        videoLink: '#',
         codeLink: '#',
         category: 'AI/ML',
         status: 'In Progress',
@@ -80,7 +83,8 @@ const projects = [
             '/L_5.png'
         ],
         tags: ['Python', 'PyTorch', 'CNN', 'React'],
-        demoLink: 'https://www.litenetx.in',
+        liveLink: 'https://www.litenetx.in',
+        videoLink: 'https://youtu.be/wyhVdyEy1v0',
         codeLink: '#',
         category: 'AI/ML',
         status: 'Completed',
@@ -96,7 +100,8 @@ const projects = [
             '/P_2.png'
         ],
         tags: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-        demoLink: '#',
+        liveLink: '#',
+        videoLink: '#',
         codeLink: '#',
         category: 'Web Development',
         status: 'Completed',
@@ -345,12 +350,17 @@ const Projects = () => {
                                     {/* Actions. */}
                                     <div className="pt-6 mt-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                                         <Button asChild className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base bg-foreground text-background hover:bg-foreground/90 font-medium transition-transform active:scale-95 shadow-lg">
-                                            <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                                 <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
                                                 Live Demo
                                             </a>
                                         </Button>
-
+                                        <Button asChild variant="outline" className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base border-border hover:bg-secondary font-medium transition-transform active:scale-95 shadow-sm">
+                                            <a href={project.videoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                                                <Play className="w-4 sm:w-5 h-4 sm:h-5" />
+                                                Video Demo
+                                            </a>
+                                        </Button>
                                     </div>
                                 </div>
                             </div>
