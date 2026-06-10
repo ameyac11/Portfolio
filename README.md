@@ -20,4 +20,4 @@ The portfolio is designed to provide an engaging and immersive user experience. 
 
 ---
 
-*Thank you for visiting! Feel free to explore my live portfolio at [ameyac11.in](https://ameyac11.in).*
+*Thank you for visiting! Feel free to explore my live portfolio at [Ameya Portfolio](https://ameyac11.in).*
