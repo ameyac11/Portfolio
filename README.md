@@ -2,6 +2,12 @@
 
 Welcome to the source code of my personal portfolio website! This project is a showcase of my skills, projects, and professional experience, brought to life with interactive 3D graphics and smooth animations.
 
+## 📸 Preview
+
+| Home | Project Showcase |
+|:---:|:---:|
+| ![Portfolio Home](./public/P_1.png) | ![Project Detail](./public/P_2.png) |
+
 ## 🌟 Overview
 
 The portfolio is designed to provide an engaging and immersive user experience. It features:
