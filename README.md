@@ -1,6 +1,19 @@
-# Ameya's Interactive 3D Portfolio
+<div align="center">
 
-Welcome to the source code of my personal portfolio website! This project is a showcase of my skills, projects, and professional experience, brought to life with interactive 3D graphics and smooth animations.
+# Ameya's Portfolio
+
+**Welcome to the source code of my personal portfolio website!**
+
+<br />
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ameyac11.in-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://ameyac11.in)
+[![License](https://img.shields.io/badge/License-Apache_2.0-22c55e?style=for-the-badge&logo=apache&logoColor=white)](./LICENSE)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+
+</div>
+
+---
 
 ## 📸 Preview
 
@@ -8,22 +21,53 @@ Welcome to the source code of my personal portfolio website! This project is a s
 |:---:|:---:|
 | ![Portfolio Home](./public/P_1.png) | ![Project Detail](./public/P_2.png) |
 
+---
+
 ## 🌟 Overview
 
-The portfolio is designed to provide an engaging and immersive user experience. It features:
-- Interactive 3D elements powered by **Three.js** and **React Three Fiber**.
-- Seamless page transitions and micro-interactions using **Framer Motion**.
-- A clean, accessible, and responsive UI built with **Shadcn UI** and **Tailwind CSS**.
-- Fully functional contact forms with **EmailJS** integration.
+A showcase of my skills, projects, and professional experience — built with interactive graphics, smooth animations, and a clean responsive UI.
 
-## 🛠️ Built With
-
-- **React** & **TypeScript**
-- **Vite**
-- **Three.js** / React Three Fiber / Drei
-- **Tailwind CSS** & Shadcn UI
-- **Framer Motion**
+- Interactive elements with **Three.js** and **React Three Fiber**
+- Page transitions with **Framer Motion**
+- UI built with **Shadcn UI** and **Tailwind CSS**
+- Contact form with **Web3Forms** integration
 
 ---
 
-*Thank you for visiting! Feel free to explore my live portfolio at [Ameya Portfolio](https://ameyac11.in).*
+## 🛠️ Built With
+
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=flat-square&logo=framer&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=flat-square&logo=threedotjs&logoColor=white)
+
+---
+
+## 🚀 Quick Start
+
+```bash
+git clone https://github.com/AmeyC171/Portfolio.git
+cd Portfolio
+npm install
+npm run dev
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the **Apache License, Version 2.0**.
+
+Copyright © 2026 **Ameya Sanjay Chopade**
+
+See the [LICENSE](./LICENSE) file for full details.
+
+---
+
+<div align="center">
+
+Explore the live site at **[ameyac11.in](https://ameyac11.in)**
+
+</div>
