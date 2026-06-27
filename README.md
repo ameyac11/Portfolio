@@ -6,7 +6,7 @@
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-ameyac11.in-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://ameyac11.in)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-ameyac11.in-6366f1?style=for-the-badge&logo=cloudflare&logoColor=white)](https://ameyac11.in)
 [![License](https://img.shields.io/badge/License-Apache_2.0-22c55e?style=for-the-badge&logo=apache&logoColor=white)](./LICENSE)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)

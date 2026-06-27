@@ -29,7 +29,7 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     // Check domain restriction.
-    const allowedDomains = ['ameyac11.vercel.app', 'ameyac11.in', 'www.ameyac11.in'];
+    const allowedDomains = ['ameyac11.pages.dev', 'ameyac11.in', 'www.ameyac11.in'];
     if (!allowedDomains.includes(window.location.hostname)) {
       toast({
         title: "Submission Restricted",
