@@ -400,9 +400,9 @@ const EducationTitleSection = ({ progress, index, total }: any) => {
         >
             <div>
                 <BookOpen className="w-16 h-16 mx-auto mb-6 text-green-500" />
-                <h1 className="text-4xl md:text-8xl font-bold font-heading tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
+                <h2 className="text-4xl md:text-8xl font-bold font-heading tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
                     EDUCATION
-                </h1>
+                </h2>
                 <p className="mt-4 text-xl text-muted-foreground font-light tracking-widest uppercase">
                     The Academic Journey
                 </p>

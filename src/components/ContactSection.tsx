@@ -153,7 +153,7 @@ const ContactSection = () => {
             <div className="w-2 h-2 bg-primary rounded-full pulse-animation"></div>
             <span className="text-foreground font-medium">Let's connect</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-heading mb-4">Get In Touch</h2>
+          <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4">Get In Touch</h1>
           <div className="w-24 h-1.5 bg-gradient-to-r from-foreground to-transparent rounded-full"></div>
           <p className="text-muted-foreground text-center max-w-2xl mt-4">
             Ready to start your next project? Let's collaborate and create something amazing together!
