@@ -11,6 +11,43 @@ import { ExternalLink, Star, Calendar, Users, TrendingUp, Filter, ChevronLeft, C
 
 const projects = [
     {
+        title: 'Gitlytics',
+        description: 'GitHub traffic analytics ecosystem for public and private repositories, combining a Python CLI/API, FastAPI backend, and React dashboard to track views, clones, referrers, stars, and long-term repository growth.',
+        screenshots: [
+            '/Gitlytics_1.png',
+            '/Gitlytics_2.png',
+            '/Gitlytics_3.png',
+            '/Gitlytics_4.png',
+            '/Gitlytics_5.png'
+        ],
+        tags: ['Python', 'FastAPI', 'React', 'TypeScript', 'Recharts', 'GitHub API', 'PyPI'],
+        liveLink: 'https://dashboard.gitlytics.dev',
+        videoLink: '#',
+        codeLink: 'https://github.com/ameyac11/gitlytics',
+        category: 'Developer Tools',
+        status: 'Completed',
+        featured: true,
+        stats: { stars: 80, contributors: 1, lastUpdate: '2026-06' },
+        highlights: ['Traffic Analytics', 'CLI & Python API', 'React Dashboard', 'Private Repo Support']
+    },
+    {
+        title: 'Gitlytics Traffic Automation',
+        description: 'Reusable GitHub Action companion for Gitlytics that automatically backs up repository traffic every 13 days, preserving historical views, clones, stars, forks, referrers, and popular paths beyond GitHub\'s short retention window.',
+        screenshots: [
+            '/GitlyticsTraffic_1.png',
+            '/GitlyticsTraffic_3.png'
+        ],
+        tags: ['GitHub Actions', 'Python', 'Automation', 'CSV', 'GitHub API', 'CI/CD'],
+        liveLink: 'https://github.com/ameyac11/gitlytics-github-traffic-automation',
+        videoLink: '#',
+        codeLink: 'https://github.com/ameyac11/gitlytics-github-traffic-automation',
+        category: 'Developer Tools',
+        status: 'Completed',
+        featured: true,
+        stats: { stars: 52, contributors: 1, lastUpdate: '2026-06' },
+        highlights: ['13-Day Sync', 'Historical Backup', 'Reusable Action', 'Traffic Vault']
+    },
+    {
         title: 'CorpusAI',
         description: 'AI-powered Corpus Intelligence & Retrieval-Augmented Generation (RAG) platform. CorpusAI enables users to ingest documents, manage reusable context, and perform semantic retrieval to generate accurate, context-aware responses across LLM interactions.',
         screenshots: [
@@ -56,23 +93,6 @@ const projects = [
         highlights: ['Conversational Dataset Generation', 'Model Selection', 'Internet-assisted Generation', 'Custom Dataset Builder']
     },
     {
-        title: 'DataNestX',
-        description: 'A modular data and AI platform designed to unify intelligent systems for dataset engineering, corpus intelligence, and scalable AI workflows.',
-        screenshots: [
-            '/DataNesTX_Logo_Dark_Frontend.png',
-            '/DataNesTX_Logo_Light_Frontend.png'
-        ],
-        tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
-        liveLink: 'https://datanestx.tech',
-        videoLink: '#',
-        codeLink: '#',
-        category: 'AI/ML',
-        status: 'In Progress',
-        featured: true,
-        stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
-        highlights: ['Modular Platform', 'Scalable Architecture', 'Unified AI Systems']
-    },
-    {
         title: 'LiteNeTX',
         description: 'Designed and implemented a custom Convolutional Neural Network (CNN) for image classification, featuring end-to-end data preprocessing, optimized training workflows, and rigorous evaluation pipelines.',
         screenshots: [
@@ -91,6 +111,40 @@ const projects = [
         featured: false,
         stats: { stars: 45, contributors: 3, lastUpdate: '2024-08' },
         highlights: ['Custom CNN Architecture', 'Optimized Training', 'Model Evaluation']
+    },
+    {
+        title: 'Lung Cancer Detection from CT Scans',
+        description: 'Deep learning research application that fine-tunes ResNet-18 and ResNet-34 CNN models for binary lung CT scan classification, with a Gradio interface for real-time scan uploads, model selection, and confidence scores.',
+        screenshots: [
+            '/LungCancer_1.png',
+            '/LungCancer_2.png'
+        ],
+        tags: ['Python', 'PyTorch', 'TorchVision', 'ResNet', 'CNN', 'Gradio', 'Safetensors'],
+        liveLink: 'https://huggingface.co/spaces/ameyac11/Lung-Cancer-Detection-from-CT-Scans-Using-CNN',
+        videoLink: '#',
+        codeLink: 'https://github.com/ameyac11/Lung-Cancer-Detection-from-CT-Scans-Using-CNN',
+        category: 'AI/ML',
+        status: 'Completed',
+        featured: false,
+        stats: { stars: 50, contributors: 1, lastUpdate: '2026-06' },
+        highlights: ['Transfer Learning', 'ResNet-18/34', 'Real-time Inference', 'Medical Imaging']
+    },
+    {
+        title: 'DataNestX',
+        description: 'A modular data and AI platform designed to unify intelligent systems for dataset engineering, corpus intelligence, and scalable AI workflows.',
+        screenshots: [
+            '/DataNesTX_Logo_Dark_Frontend.png',
+            '/DataNesTX_Logo_Light_Frontend.png'
+        ],
+        tags: ['TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
+        liveLink: 'https://datanestx.tech',
+        videoLink: '#',
+        codeLink: '#',
+        category: 'AI/ML',
+        status: 'In Progress',
+        featured: true,
+        stats: { stars: 72, contributors: 2, lastUpdate: '2026-01' },
+        highlights: ['Modular Platform', 'Scalable Architecture', 'Unified AI Systems']
     },
     {
         title: 'Portfolio',
@@ -121,6 +175,7 @@ const Projects = () => {
 
     const filters = [
         { id: 'all', name: 'All Projects', count: projects.length },
+        { id: 'Developer Tools', name: 'Dev Tools', count: projects.filter(p => p.category === 'Developer Tools').length },
         { id: 'AI/ML', name: 'AI & ML', count: projects.filter(p => p.category === 'AI/ML').length },
         { id: 'Web Development', name: 'Web Dev', count: projects.filter(p => p.category === 'Web Development').length },
         { id: 'featured', name: 'Featured', count: projects.filter(p => p.featured).length }
